@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:id="@+id/frame"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/eventpicture"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:layout_gravity="top"
+                android:background="@color/colorPrimary"
+                android:contentDescription="EventPicture"
+                android:scaleType="centerCrop"
+                android:src="@raw/default_event_picture" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:orientation="horizontal"
+                android:weightSum="100">
+
+                <ImageButton
+                    android:id="@+id/left_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="10"
+                    android:layout_gravity="center_vertical"
+                    android:background="#00000000"
+                    android:src="@drawable/ic_keyboard_arrow_left_black" />
+
+                <HorizontalScrollView
+                    android:id="@+id/image_scroll_view"
+                    android:layout_weight="80"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center">
+
+                    <LinearLayout
+                        android:id="@+id/event_photos"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"></LinearLayout>
+                </HorizontalScrollView>
+
+                <ImageButton
+                    android:id="@+id/right_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="10"
+                    android:layout_gravity="center_vertical"
+                    android:background="#00000000"
+                    android:src="@drawable/ic_keyboard_arrow_right_black_24dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/onerow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:showDividers="middle">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:background="#ffffff"
+                    android:orientation="vertical"
+                    android:showDividers="middle">
+
+                    <TextView
+                        android:id="@+id/txteventname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#ffffff"
+                        android:gravity="center"
+                        android:text="Some Random Event"
+                        android:textSize="30sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtcategories"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#ffffff"
+                        android:gravity="center"
+                        android:text="Sport, Party, Outdoor, Etc"
+                        android:textSize="15sp"
+                        android:textStyle="italic" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#ffffff">
+
+                        <TextView
+                            android:id="@+id/txteventdescription"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="4dp"
+                            android:background="#ffffff"
+                            android:lineSpacingExtra="1.5dp"
+                            android:padding="8dp"
+                            android:text="Lorem ipsum dolor sit amet, et noluisse complectitur has, ne duo cibo causae, nec ex corrumpit neglegentur. Feugait tincidunt eos ad, porro vituperata id est. Mel dicit voluptua invenire eu, no nisl imperdiet definitionem sit, ne labore ornatus lobortis vix.otidieque. Pri eu choro veniam, hinc modus dissentias his an"
+                            android:textIsSelectable="true"
+                            android:textSize="17sp" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:baselineAligned="false"
+                        android:orientation="vertical">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:baselineAligned="false"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="4dp"
+                                android:layout_marginStart="4dp"
+                                android:gravity="center|start"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/ic_date_range_black" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="#ffffff"
+                                android:orientation="vertical"
+                                android:weightSum="100">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="50"
+                                    android:orientation="horizontal">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/txtstarttime"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:background="#ffffff"
+                                            android:textAlignment="center"
+                                            android:maxLines="1"
+                                            android:text="18.00"
+                                            android:textSize="20sp" />
+
+                                        <TextView
+                                            android:id="@+id/start_date"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="0dp"
+                                            android:layout_weight="50"
+                                            android:background="#ffffff"
+                                            android:gravity="center|start"
+                                            android:maxLines="1"
+                                            android:text="18.01.2017"
+                                            android:textSize="16sp" />
+                                    </LinearLayout>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:background="#ffffff"
+                                        android:text=" - "
+                                        android:textSize="26sp" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/txtendtime"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_horizontal"
+                                            android:background="#ffffff"
+                                            android:gravity="center|start"
+                                            android:textAlignment="center"
+                                            android:maxLines="1"
+                                            android:text="21.00"
+                                            android:textSize="20sp" />
+
+                                        <TextView
+                                            android:id="@+id/end_date"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="0dp"
+                                            android:layout_weight="50"
+                                            android:background="#ffffff"
+                                            android:gravity="center|start"
+                                            android:maxLines="1"
+                                            android:text="18.01.2017"
+                                            android:textSize="16sp" />
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/txt_collision"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="right|end"
+                                android:layout_marginRight="3dp"
+                                android:text="No collision found"
+                                android:textAlignment="textEnd" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="4dp"
+                            android:background="#ffffff" />
+
+                        <LinearLayout
+                            android:id="@+id/forecast"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top"
+                                android:layout_marginTop="5dp"
+                                android:showDividers="middle">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center|start"
+                                    android:text="Weather forecast: " />
+
+                                <ImageView
+                                    android:id="@+id/weather_icon"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="8dp"
+                                    android:gravity="center|start"
+                                    android:scaleType="centerCrop"
+                                    android:src="@drawable/sunny" />
+
+                                <TextView
+                                    android:id="@+id/weather_temperature"
+                                    android:layout_height="match_parent"
+                                    android:layout_width="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:background="#ffffff"
+                                    android:gravity="center|start"
+                                    android:text="15°C"
+                                    android:textSize="15sp"
+                                    android:ellipsize="none"
+                                    android:scrollHorizontally="false" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="end"
+                                android:textAlignment="textEnd"
+                                android:layout_marginBottom="5dp"
+                                android:textSize="11sp"
+                                android:text="Powered by OpenWeatherMap" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="4dp"
+                            android:background="#ffffff" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="top"
+                            android:showDividers="middle">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center"
+                                android:layout_marginEnd="4dp"
+                                android:layout_marginRight="4dp"
+                                android:gravity="center|start"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/ic_location_on_black" />
+
+                            <LinearLayout
+                                android:layout_width="4dp"
+                                android:layout_height="match_parent"
+                                android:background="#ffffff" />
+
+                            <TextView
+                                android:id="@+id/txtlocation"
+                                android:layout_height="wrap_content"
+                                android:layout_width="wrap_content"
+                                android:background="#ffffff"
+                                android:gravity="center|start"
+                                android:text="Some Location"
+                                android:textSize="15sp"
+                                android:ellipsize="none"
+                                android:scrollHorizontally="false" />
+                        </LinearLayout>
+
+                        <fragment
+                            android:name="com.google.android.gms.maps.SupportMapFragment"
+                            android:id="@+id/map"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:baselineAligned="false"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+
+                            <LinearLayout
+                                android:layout_width="100dp"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:weightSum="100">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="40"
+                                    android:orientation="horizontal"
+                                    android:layout_gravity="center">
+
+
+                                    <TextView
+                                        android:id="@+id/txtcurrent"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:background="#ffffff"
+                                        android:gravity="center|end"
+                                        android:text="3"
+                                        android:textAlignment="viewEnd"
+                                        android:textSize="18sp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:background="#ffffff"
+                                        android:gravity="center|end"
+                                        android:text=" / "
+                                        android:textAlignment="viewEnd"
+                                        android:textSize="18sp" />
+
+                                    <TextView
+                                        android:id="@+id/txtcapacity"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:background="#ffffff"
+                                        android:gravity="center|end"
+                                        android:text="10"
+                                        android:textAlignment="viewEnd"
+                                        android:textSize="18sp" />
+
+                                </LinearLayout>
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="40">
+
+                                    <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                                        android:layout_marginLeft="4dp"
+                                        android:id="@+id/eventprogress"
+                                        android:layout_width="100dp"
+                                        android:layout_height="match_parent"
+                                        app:rcBackgroundColor="@color/colorPrimary"
+                                        app:rcBackgroundPadding="0dp"
+                                        app:rcMax="25"
+                                        app:rcProgress="5"
+                                        app:rcProgressColor="@color/colorPrimaryDark"
+                                        app:rcRadius="2dp" />
+
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <HorizontalScrollView
+                                android:layout_marginLeft="32dp"
+                                android:id="@+id/horizontalScrollView1"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="top|center">
+
+                                <LinearLayout
+                                    android:id="@+id/participants"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:orientation="horizontal">
+
+                                </LinearLayout>
+                            </HorizontalScrollView>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" />
+
+                        <net.igenius.customcheckbox.CustomCheckBox
+                            android:id="@+id/participatingcheckbox"
+                            android:layout_width="50dp"
+                            android:layout_marginRight="16dp"
+                            android:layout_height="match_parent"
+                            app:duration="1"
+                            app:color_tick="#ffffff"
+                            app:color_unchecked="#ffffff"
+                            app:color_checked="#00ff00" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/chat_button"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Show Chat"
+                            android:visibility="gone" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/owner_options"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="6dp"
+                    android:background="#ffffff" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14pt"
+                    android:layout_marginBottom="8dp"
+                    android:textAlignment="center"
+                    android:text="Owner options" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="100">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="25"
+                        android:textSize="16sp"
+                        android:text="Remove participant" />
+
+                    <Spinner
+                        android:id="@+id/participants_spinner"
+                        android:layout_width="0dp"
+                        android:dropDownWidth="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"></Spinner>
+
+                    <Button
+                        android:id="@+id/remove_participant_button"
+                        android:layout_width="0dp"
+                        android:layout_gravity="center"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="25"
+                        android:textAlignment="center"
+                        android:textColor="@color/red"
+                        android:text="Remove" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/cancel_event_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:background="@color/red"
+                    android:textStyle="bold"
+                    android:layout_marginTop="16dp"
+                    android:textColor="@color/white"
+                    android:text="Cancel event" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>

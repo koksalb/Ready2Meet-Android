@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/imglayout"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_gravity="top"
+            android:layout_marginTop="4dp"
+            android:background="@color/colorPrimary"
+            android:showDividers="middle">
+
+            <ImageView
+                android:id="@+id/eventpicture"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:background="@color/colorPrimary"
+                android:contentDescription="EventPicture"
+                android:scaleType="centerCrop"
+
+
+                android:src="@raw/default_event_picture" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/onerow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:background="@color/colorPrimaryDark"
+            android:showDividers="middle">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:background="#ffffff"
+                android:orientation="vertical"
+                android:showDividers="middle">
+
+                <TextView
+                    android:id="@+id/txteventname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:gravity="center"
+                    android:text="Some Random Event"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtcategories"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    android:gravity="center"
+                    android:text="Sport, Party, Outdoor, Etc"
+                    android:textSize="15sp"
+                    android:textStyle="italic" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff">
+
+                    <TextView
+                        android:id="@+id/txteventdescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"
+                        android:background="#ffffff"
+                        android:lineSpacingExtra="1.5dp"
+                        android:padding="8dp"
+                        android:maxLines="2"
+                        android:text="Lorem ipsum dolor sit amet, et noluisse complectitur has, ne duo cibo causae, nec ex corrumpit neglegentur. Feugait tincidunt eos ad, porro vituperata id est. Mel dicit voluptua invenire eu, no nisl imperdiet definitionem sit, ne labore ornatus lobortis vix.otidieque. Pri eu choro veniam, hinc modus dissentias his an"
+                        android:textIsSelectable="true"
+                        android:textSize="17sp" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:baselineAligned="false"
+                    android:orientation="vertical"
+                    android:weightSum="100">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="50"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginStart="4dp"
+                            android:gravity="center|start"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/ic_date_range_black" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:background="#ffffff"
+                            android:orientation="vertical"
+                            android:weightSum="100">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="0dp"
+                                android:layout_weight="50"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/txtstarttime"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginBottom="2dp"
+                                    android:background="#ffffff"
+                                    android:gravity="center|start"
+                                    android:maxLines="1"
+                                    android:text="18.00"
+                                    android:textSize="18sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:background="#ffffff"
+                                    android:gravity="center|start"
+                                    android:text=" - "
+                                    android:textSize="18sp" />
+
+                                <TextView
+                                    android:id="@+id/txtendtime"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginBottom="2dp"
+                                    android:background="#ffffff"
+                                    android:gravity="center|start"
+                                    android:maxLines="1"
+                                    android:text="21.00"
+                                    android:textSize="18sp" />
+
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/txtdate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="0dp"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_weight="50"
+                                android:background="#ffffff"
+                                android:gravity="center|start"
+                                android:maxLines="1"
+                                android:text="18.01.2017"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="4dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+
+                                android:id="@+id/txtlocation"
+                                android:layout_height="match_parent"
+                                android:layout_width="match_parent"
+                                android:background="#ffffff"
+                                android:gravity="center|end"
+                                android:text="Some Location"
+                                android:textAlignment="viewEnd"
+                                android:textSize="13sp"
+                                android:ellipsize="none"
+                                android:scrollHorizontally="false" />
+
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_marginLeft="4dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="4dp"
+                            android:layout_marginRight="4dp"
+                            android:gravity="center|end"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/ic_location_on_black" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="60"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <LinearLayout
+                            android:layout_width="100dp"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:weightSum="100">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="0dp"
+                                android:layout_weight="40"
+                                android:orientation="horizontal"
+                                android:layout_gravity="center">
+
+                                <TextView
+                                    android:id="@+id/txtcurrent"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:background="#ffffff"
+                                    android:gravity="center|end"
+                                    android:text="3"
+                                    android:textAlignment="viewEnd"
+                                    android:textSize="18sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:background="#ffffff"
+                                    android:gravity="center|end"
+                                    android:text=" / "
+                                    android:textAlignment="viewEnd"
+                                    android:textSize="18sp" />
+
+                                <TextView
+                                    android:id="@+id/txtcapacity"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:background="#ffffff"
+                                    android:gravity="center|end"
+                                    android:text="10"
+                                    android:textAlignment="viewEnd"
+                                    android:textSize="18sp" />
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="50">
+
+                                <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                                    android:layout_marginLeft="4dp"
+                                    android:id="@+id/eventprogress"
+                                    android:layout_width="100dp"
+                                    android:layout_height="match_parent"
+                                    app:rcBackgroundColor="@color/colorPrimary"
+                                    app:rcBackgroundPadding="0dp"
+                                    app:rcMax="25"
+                                    app:rcProgress="5"
+                                    app:rcProgressColor="@color/colorPrimaryDark"
+                                    app:rcRadius="2dp" />
+
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                        <HorizontalScrollView
+                            android:layout_marginLeft="32dp"
+                            android:id="@+id/horizontalScrollView1"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="top|center">
+
+                            <LinearLayout
+                                android:id="@+id/participants"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+
+                            </LinearLayout>
+                        </HorizontalScrollView>
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+
+                    <net.igenius.customcheckbox.CustomCheckBox
+                        android:id="@+id/participatingcheckbox"
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        app:duration="1"
+                        app:color_tick="#ffffff"
+                        android:layout_marginRight="16dp"
+                        app:color_unchecked="#ffffff"
+                        app:color_checked="#00ff00" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
