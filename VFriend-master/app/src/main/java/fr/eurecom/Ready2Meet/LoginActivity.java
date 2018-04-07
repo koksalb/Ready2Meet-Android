@@ -1,8 +1,13 @@
 package fr.eurecom.Ready2Meet;
 
+import android.content.Context;
 import android.content.Intent;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
@@ -16,6 +21,10 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
+
+import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -31,6 +40,46 @@ public class LoginActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
 
         if (auth.getCurrentUser() != null) {
+            FirebaseUser user = auth.getCurrentUser();
+            final String signupEUID = user.getUid();
+/*
+            if(ActivityCompat.checkSelfPermission(this.getApplicationContext(), android
+                    .Manifest.permission.ACCESS_FINE_LOCATION) != PERMISSION_GRANTED &&
+                    ActivityCompat.checkSelfPermission(this.getApplicationContext(),
+                            android.Manifest.permission.ACCESS_COARSE_LOCATION) !=
+                            PERMISSION_GRANTED) {
+
+                return;
+            }
+
+            String provider;
+            Criteria criteria = new Criteria();
+            LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+            provider = locationManager.getBestProvider(criteria, false);
+
+
+            Location location = locationManager.getLastKnownLocation(provider);
+
+
+
+
+            double latitude = 0.0;
+            double longitude = 0.0;
+            if (location != null) {
+                latitude = location.getLatitude();
+                longitude = location.getLongitude();
+            }
+
+
+
+            FirebaseDatabase.getInstance().getReference().child("Users")
+                    .child(signupEUID).child("LastKnownLatitude")
+                    .setValue(latitude);
+            FirebaseDatabase.getInstance().getReference().child("Users")
+                    .child(signupEUID).child("LastKnownLongitude")
+                    .setValue(longitude);
+
+            */
             startActivity(new Intent(LoginActivity.this, Main2Activity.class));
             finish();
         }

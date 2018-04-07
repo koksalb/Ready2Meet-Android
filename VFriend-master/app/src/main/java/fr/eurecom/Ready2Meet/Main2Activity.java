@@ -1,17 +1,27 @@
 package fr.eurecom.Ready2Meet;
 
+import android.*;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -28,18 +38,26 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.util.List;
+
 import fr.eurecom.Ready2Meet.uiExtensions.MainPagerAdapter;
 import fr.eurecom.Ready2Meet.uiExtensions.ToolbarActivity;
+
+import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 
 public class Main2Activity extends ToolbarActivity {
     private FirebaseAuth auth;
 
     public final static String TAG_EVENT_DETAIL_FRAGMENT = "EventDetail";
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         auth = FirebaseAuth.getInstance();
+        final String signupEUID = auth.getCurrentUser().getUid();
 
         setContentView(R.layout.activity_main2);
 
@@ -60,6 +78,12 @@ public class Main2Activity extends ToolbarActivity {
 
         final String token = FirebaseInstanceId.getInstance().getToken();
         final String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+
+
+
+
+
         FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child
                 ("ParticipatingEvents").addValueEventListener(new ValueEventListener() {
             @Override

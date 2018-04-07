@@ -180,6 +180,7 @@ public class SignupActivity extends AppCompatActivity {
                             }
                         });
 
+
                         Map<String, Boolean> events = new HashMap<>();
                         events.put("-L0AEWfuhQx3DjXz7H6Q", true);
 
@@ -189,6 +190,11 @@ public class SignupActivity extends AppCompatActivity {
                         mDatabase.child("Events").child("-L0AEWfuhQx3DjXz7H6Q").child
                                 ("Participants").child(signupEUID).setValue(true);
                         mDatabase.child("Users").child(signupEUID).setValue(userObj);
+
+
+
+
+
 
                         if(! task.isSuccessful()) {
                             Toast.makeText(SignupActivity.this, "Authentication failed." + task
