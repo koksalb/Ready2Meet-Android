@@ -8,7 +8,9 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.location.Address;
 import android.location.Criteria;
+import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Build;
@@ -49,6 +51,7 @@ import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 
 import fr.eurecom.Ready2Meet.database.Event;
@@ -185,6 +188,33 @@ public class DashboardFragment extends Fragment implements OnMapReadyCallback, S
                                         .child(signupEUID).child("LastKnownLongitude")
                                         .setValue(location.getLongitude());
 
+                                Geocoder geocoder = new Geocoder(getContext(), Locale.getDefault());;
+                                List<Address> addresses;
+                                try {
+                                    addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
+                                    String postalCode = addresses.get(0).getPostalCode();
+                                    String city = addresses.get(0).getLocality();
+                                    String address = addresses.get(0).getAddressLine(0);
+                                    String state = addresses.get(0).getAdminArea();
+                                    String country = addresses.get(0).getCountryName();
+                                    String knownName = addresses.get(0).getFeatureName();
+
+                                    FirebaseDatabase.getInstance().getReference().child("Users")
+                                            .child(signupEUID).child("LastKnownCity")
+                                            .setValue(city);
+
+                                    FirebaseDatabase.getInstance().getReference().child("Users")
+                                            .child(signupEUID).child("LastKnownCountry")
+                                            .setValue(country);
+
+
+
+                                }catch(Exception e)
+                                {
+
+                                }
+
+
                             }
                         }
                     })
@@ -298,4 +328,9 @@ public class DashboardFragment extends Fragment implements OnMapReadyCallback, S
             }
         }
     }
+
+
+
+
+
 }

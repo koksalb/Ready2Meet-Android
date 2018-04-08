@@ -25,6 +25,9 @@ public class User {
     public Double LastKnownLatitude;
     public Double LastKnownLongitude;
 
+    public String LastKnownCity;
+    public String LastKnownCountry;
+
     public User() {
     }
 
@@ -39,5 +42,8 @@ public class User {
 
         this.LastKnownLatitude = 0.0;
         this.LastKnownLongitude=0.0;
+
+        this.LastKnownCity="Istanbul";
+        this.LastKnownCountry="Turkey";
     }
 }
