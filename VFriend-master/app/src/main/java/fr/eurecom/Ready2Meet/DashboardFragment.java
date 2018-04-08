@@ -13,6 +13,7 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
@@ -21,7 +22,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import com.google.android.gms.location.LocationListener;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationCallback;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationResult;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.LocationSettingsRequest;
+import com.google.android.gms.location.SettingsClient;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -29,6 +37,8 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -53,6 +63,9 @@ public class DashboardFragment extends Fragment implements OnMapReadyCallback, S
     private GoogleMap googleMap;
 
     private double maxPeople = 1;
+
+    private LocationRequest mLocationRequest;
+
 
     public DashboardFragment() {
         // Required empty public constructor
@@ -119,6 +132,10 @@ public class DashboardFragment extends Fragment implements OnMapReadyCallback, S
                 .unregisterOnSharedPreferenceChangeListener(this);
     }
 
+
+
+
+
     /**
      * Iterate over the list of all events and display the events in the map.
      * <p>
@@ -146,6 +163,29 @@ public class DashboardFragment extends Fragment implements OnMapReadyCallback, S
             return;
         } else {
             googleMap.setMyLocationEnabled(true);
+
+
+            FusedLocationProviderClient locationClient = LocationServices.getFusedLocationProviderClient(this.getActivity());
+
+            locationClient.getLastLocation()
+                    .addOnSuccessListener(new OnSuccessListener<Location>() {
+                        @Override
+                        public void onSuccess(Location location) {
+                            // GPS location can be null if GPS is switched off
+                            if (location != null) {
+
+
+
+                            }
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.d("MapDemoActivity", "Error trying to get last GPS location");
+                            e.printStackTrace();
+                        }
+                    });
 
 
         }

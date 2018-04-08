@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="com.akexorcist:RoundCornerProgressBar-2.0.3">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/RoundCornerProgressBar-2.0.3.aar/1a502b4c21fec9f3868e940423da0541/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/RoundCornerProgressBar-2.0.3.aar/1a502b4c21fec9f3868e940423da0541/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/RoundCornerProgressBar-2.0.3.aar/08cd99c401b305394e9ef4651dea80e1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/RoundCornerProgressBar-2.0.3.aar/08cd99c401b305394e9ef4651dea80e1/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
