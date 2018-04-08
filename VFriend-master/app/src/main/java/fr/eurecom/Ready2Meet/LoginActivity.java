@@ -42,44 +42,6 @@ public class LoginActivity extends AppCompatActivity {
         if (auth.getCurrentUser() != null) {
             FirebaseUser user = auth.getCurrentUser();
             final String signupEUID = user.getUid();
-/*
-            if(ActivityCompat.checkSelfPermission(this.getApplicationContext(), android
-                    .Manifest.permission.ACCESS_FINE_LOCATION) != PERMISSION_GRANTED &&
-                    ActivityCompat.checkSelfPermission(this.getApplicationContext(),
-                            android.Manifest.permission.ACCESS_COARSE_LOCATION) !=
-                            PERMISSION_GRANTED) {
-
-                return;
-            }
-
-            String provider;
-            Criteria criteria = new Criteria();
-            LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-            provider = locationManager.getBestProvider(criteria, false);
-
-
-            Location location = locationManager.getLastKnownLocation(provider);
-
-
-
-
-            double latitude = 0.0;
-            double longitude = 0.0;
-            if (location != null) {
-                latitude = location.getLatitude();
-                longitude = location.getLongitude();
-            }
-
-
-
-            FirebaseDatabase.getInstance().getReference().child("Users")
-                    .child(signupEUID).child("LastKnownLatitude")
-                    .setValue(latitude);
-            FirebaseDatabase.getInstance().getReference().child("Users")
-                    .child(signupEUID).child("LastKnownLongitude")
-                    .setValue(longitude);
-
-            */
             startActivity(new Intent(LoginActivity.this, Main2Activity.class));
             finish();
         }

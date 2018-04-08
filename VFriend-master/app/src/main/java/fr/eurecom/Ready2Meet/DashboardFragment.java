@@ -40,6 +40,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -173,8 +174,16 @@ public class DashboardFragment extends Fragment implements OnMapReadyCallback, S
                         public void onSuccess(Location location) {
                             // GPS location can be null if GPS is switched off
                             if (location != null) {
+                                FirebaseAuth auth = FirebaseAuth.getInstance();
+                                FirebaseUser user = auth.getCurrentUser();
+                                final String signupEUID = user.getUid();
 
-
+                                FirebaseDatabase.getInstance().getReference().child("Users")
+                                        .child(signupEUID).child("LastKnownLatitude")
+                                        .setValue(location.getLatitude());
+                                FirebaseDatabase.getInstance().getReference().child("Users")
+                                        .child(signupEUID).child("LastKnownLongitude")
+                                        .setValue(location.getLongitude());
 
                             }
                         }
