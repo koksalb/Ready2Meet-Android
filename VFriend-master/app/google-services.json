@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "385430695443-kht5t6b2hllemv0fe15ep7pjv3hlfb4u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "fr.eurecom.Ready2Meet",
+            "certificate_hash": "68cd10e7aab688288b5abde713b02023fbaa7005"
+          }
+        },
+        {
           "client_id": "385430695443-99847tkirkiuqiv1ea4bsb0l6l04oaps.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
