@@ -90,7 +90,9 @@ public class AddEventActivity extends ToolbarActivity {
             @Override
             public void selectedStrings(List<String> strings) {
                 for(String category : strings) {
+
                     categories.put(category, true);
+
                 }
             }
         });

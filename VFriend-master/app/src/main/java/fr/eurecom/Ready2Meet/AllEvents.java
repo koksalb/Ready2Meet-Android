@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -68,6 +69,10 @@ public class AllEvents extends Fragment {
         categorySpinner.setListener(new MultiSelectSpinner.OnMultipleItemsSelectedListener() {
             @Override
             public void selectedStrings(List<String> strings) {
+                DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Users/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "/InterestedCategories");
+                mDatabase.removeValue();
+                
+
                 // Write filter strings to shared preferences
                 SharedPreferences.Editor editor = getActivity().getPreferences(Context
                         .MODE_PRIVATE).edit();
@@ -84,6 +89,7 @@ public class AllEvents extends Fragment {
                 filter.removeOldFilter();
 
                 for(String s : strings) {
+                    mDatabase.child(s).setValue(true);
                     if(adapter != null) {
                         adapter.getFilter().filter(s);
                     } else {
