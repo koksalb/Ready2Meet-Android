@@ -97,8 +97,8 @@ public abstract class ToolbarActivity extends AppCompatActivity implements Navig
         profilepicturebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent(getApplication(), profilepageActivity.class);
+                intent.putExtra("userid", FirebaseAuth.getInstance().getCurrentUser().getUid());
                 startActivity(intent);
             }
         });

@@ -3,7 +3,239 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context="fr.eurecom.Ready2Meet.profilepageActivity">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:background="#ffffff"
+                    android:orientation="horizontal"
+                    android:weightSum="100">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="25">
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:orientation="vertical"
+                        >
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/profilePictureCircleImageView"
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
+                            app:civ_border_width="2dp"
+                            app:civ_border_color="#FF000000"
+                            android:src="@drawable/templateprofilepicture"
+                            android:layout_gravity="center"
+                            android:background="#ffffff"/>
+<FrameLayout
+    android:id="@+id/premiumFrame"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="-150dp">
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/premiumstar"
+
+/>
+    <TextView
+        android:id="@+id/premiumdayslefttext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="23"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+
+</FrameLayout>
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="0dp"
+                        android:layout_weight="20"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:layout_marginTop="20dp"
+                            android:id="@+id/followbutton"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:background="#42a1f4"
+                            android:text="Follow"
+                            />
+
+                        <Button
+                            android:layout_marginTop="20dp"
+                            android:id="@+id/messagebutton"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:background="#5ff939"
+                            android:text="Message"
+                            />
+
+                        <Button
+                            android:layout_marginTop="20dp"
+                            android:id="@+id/blockbutton"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:background="#f24835"
+                            android:text="Block"
+                            />
+
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Berkay Koksal"
+                        android:id="@+id/displaynametext"
+                        android:layout_gravity="center"
+                        android:textSize="20sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="(Valbonne / France)"
+                        android:id="@+id/locationtext"
+                        android:layout_gravity="center"
+                        android:textSize="12sp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="5"
+                        android:id="@+id/descriptionText"
+                        android:padding="16dp"
+                        android:textSize="15sp"
+                        android:layout_gravity="center_vertical|right"
+                        android:text="Lorem ipsum dolor sit amet, nec no mollis bonorum. No tota iuvaret admodum eam, mea eu vero solet qualisque. Id vel ipsum laudem interpretaris, id pro affert option, harum delicata delicatissimi cum ad. Denique cotidieque no quo. Illum soleat honestatis no mea, luptatum atomorum vituperatoribus cu eum."/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="#f3f3"
+                    android:weightSum="3"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="8dp">
+                        <TextView
+                            android:id="@+id/followerstext"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="Followers (3)"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:id="@+id/followingtext"
+                            android:text="Following (3)"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:id="@+id/categoriestext"
+                            android:text="Categories (3)"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            />
+
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:background="#a3a">
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:background="#e5e">
+                </LinearLayout>
+
+
+
+
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+
+
+
+
 
 </android.support.constraint.ConstraintLayout>
