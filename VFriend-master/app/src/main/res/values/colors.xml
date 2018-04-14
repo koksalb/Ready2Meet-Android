@@ -25,5 +25,7 @@
     <color name="accent_blue">#0073c9</color>
     <color name="red">#dfff0000</color>
 
+    <color name="black_overlay">#66000000</color>
+
 
 </resources>

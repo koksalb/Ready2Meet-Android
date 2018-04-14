@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -24,6 +25,7 @@ import com.squareup.picasso.Picasso;
 import de.hdodenhof.circleimageview.CircleImageView;
 import fr.eurecom.Ready2Meet.R;
 import fr.eurecom.Ready2Meet.database.User;
+import fr.eurecom.Ready2Meet.profilepageActivity;
 
 public abstract class ToolbarActivity extends AppCompatActivity implements NavigationView
         .OnNavigationItemSelectedListener {
@@ -90,6 +92,19 @@ public abstract class ToolbarActivity extends AppCompatActivity implements Navig
                 startActivityForResult(intent, 2);
             }
         });
+
+        ImageView profilepicturebutton = (ImageView) headerView.findViewById(R.id.imageView);
+        profilepicturebutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getApplication(), profilepageActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+
     }
 
     @Override
