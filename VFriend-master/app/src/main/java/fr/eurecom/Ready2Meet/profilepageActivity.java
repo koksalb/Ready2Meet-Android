@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -50,6 +52,8 @@ public class profilepageActivity extends AppCompatActivity {
         final TextView locationText = (TextView) findViewById(R.id.locationtext);
         final CircleImageView profileimgView = (CircleImageView) findViewById(R.id.profilePictureCircleImageView);
         final TextView descriptionText = (TextView) findViewById(R.id.descriptionText);
+        final EditText descriptionEditText = (EditText) findViewById(R.id.descriptionEditText);
+
 
         final TextView followerstext = (TextView) findViewById(R.id.followerstext);
         final TextView followingtext = (TextView) findViewById(R.id.followingtext);
@@ -63,12 +67,13 @@ public class profilepageActivity extends AppCompatActivity {
 
 
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Users/" + useridtoshow);
-        mDatabase.addValueEventListener(new ValueEventListener() {
+        mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 User user = snapshot.getValue(User.class);
                 displaynameText.setText(user.DisplayName);
                 descriptionText.setText(user.Description);
+                descriptionEditText.setText(user.Description);
                 locationText.setText("("+user.LastKnownCity+ " / " + user.LastKnownCountry +")");
 
                 Picasso.with(getApplicationContext()).load(user.ProfilePictureURL).fit().into(profileimgView);
@@ -122,11 +127,16 @@ public class profilepageActivity extends AppCompatActivity {
                 {
                     followbutton.setEnabled(false);
                     blockbutton.setEnabled(false);
-                    descriptionText.setFocusable(true);
-                    descriptionText.setEnabled(true);
-                    descriptionText.setClickable(true);
-                    descriptionText.setFocusableInTouchMode(true);
+                    descriptionText.setVisibility(View.GONE);
+                    descriptionEditText.setVisibility(View.VISIBLE);
 
+                }
+                else
+                {
+                    followbutton.setEnabled(true);
+                    blockbutton.setEnabled(true);
+                    descriptionText.setVisibility(View.VISIBLE);
+                    descriptionEditText.setVisibility(View.GONE);
                 }
 
 
@@ -159,6 +169,29 @@ public class profilepageActivity extends AppCompatActivity {
             public void onClick(View view) {
                 DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Users/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "/BlockedUsers");
                 mDatabase.child(useridtoshow).setValue(true);
+            }
+        });
+
+        descriptionEditText.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+                String newdescription = s.toString();
+                DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Users/" + FirebaseAuth.getInstance().getCurrentUser().getUid());
+                mDatabase.child("Description").setValue(newdescription);
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start,
+                                          int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start,
+                                      int before, int count) {
+
+
             }
         });
 

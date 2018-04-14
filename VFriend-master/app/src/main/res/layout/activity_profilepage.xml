@@ -141,6 +141,16 @@
                         android:textSize="15sp"
                         android:layout_gravity="center_vertical|right"
                         android:text="Lorem ipsum dolor sit amet, nec no mollis bonorum. No tota iuvaret admodum eam, mea eu vero solet qualisque. Id vel ipsum laudem interpretaris, id pro affert option, harum delicata delicatissimi cum ad. Denique cotidieque no quo. Illum soleat honestatis no mea, luptatum atomorum vituperatoribus cu eum."/>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="5"
+                        android:id="@+id/descriptionEditText"
+                        android:padding="16dp"
+                        android:textSize="15sp"
+
+                        android:layout_gravity="center_vertical|right"
+                        android:text="Lorem ipsum dolor sit amet, nec no mollis bonorum. No tota iuvaret admodum eam, mea eu vero solet qualisque. Id vel ipsum laudem interpretaris, id pro affert option, harum delicata delicatissimi cum ad. Denique cotidieque no quo. Illum soleat honestatis no mea, luptatum atomorum vituperatoribus cu eum."/>
 
                 </LinearLayout>
 
