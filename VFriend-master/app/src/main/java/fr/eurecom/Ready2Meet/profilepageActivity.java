@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import com.google.android.gms.vision.Frame;
@@ -65,12 +66,11 @@ public class profilepageActivity extends AppCompatActivity {
         final Button followbutton = (Button) findViewById(R.id.followbutton);
         final Button blockbutton = (Button) findViewById(R.id.blockbutton);
 
-
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Users/" + useridtoshow);
         mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
-                User user = snapshot.getValue(User.class);
+                final User user = snapshot.getValue(User.class);
                 displaynameText.setText(user.DisplayName);
                 descriptionText.setText(user.Description);
                 descriptionEditText.setText(user.Description);
@@ -138,6 +138,44 @@ public class profilepageActivity extends AppCompatActivity {
                     descriptionText.setVisibility(View.VISIBLE);
                     descriptionEditText.setVisibility(View.GONE);
                 }
+
+
+
+
+                followerstext.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+
+                        PopupMenu menu = new PopupMenu(getApplicationContext(), view);
+
+                        for(String key : user.Followers.keySet()) {
+                                menu.getMenu().add(key);
+                        }
+
+                        menu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener(){
+                            @Override
+                            public boolean onMenuItemClick(MenuItem item) {
+                                switch (item.getItemId()) {
+
+
+                                    default:
+                                        Intent intent = new Intent(getApplication(), profilepageActivity.class);
+                                        intent.putExtra("userid", item.toString());
+                                        startActivity(intent);
+                                        return true;
+                                             }
+
+                            }
+
+                        });
+                        menu.show();
+
+                    }
+                });
+
+
+
 
 
             }
