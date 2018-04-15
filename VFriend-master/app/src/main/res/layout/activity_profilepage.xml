@@ -239,7 +239,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:msrv_gravity="start"
-                    app:msrv_snap_count="2" />
+                    app:msrv_snap_count="1" />
 
 
                 <TextView
