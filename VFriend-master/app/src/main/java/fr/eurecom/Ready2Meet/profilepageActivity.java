@@ -90,6 +90,7 @@ public class profilepageActivity extends AppCompatActivity {
         final TextView premiumdayslefttext = (TextView) findViewById(R.id.premiumdayslefttext);
 
         final Button followbutton = (Button) findViewById(R.id.followbutton);
+        final Button messagebutton = (Button) findViewById(R.id.messagebutton);
         final Button blockbutton = (Button) findViewById(R.id.blockbutton);
 
         final TextView participatingeventstext = (TextView) findViewById(R.id.participatingeventstext);
@@ -436,6 +437,45 @@ public class profilepageActivity extends AppCompatActivity {
 
             }
         });
+
+
+        messagebutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                String otheruser = useridtoshow;
+                String thisuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+                String channelid = "";
+                if(otheruser.compareTo(thisuser)<0)
+                {
+                    channelid = otheruser + thisuser;
+                }
+                else
+                {
+                    channelid = thisuser + otheruser;
+                }
+
+
+                Intent intent = new Intent(getApplication(), ChatActivity2.class);
+                intent.putExtra("EventId", channelid);
+                intent.putExtra("EventTitle", displaynameText.getText().toString());
+                startActivity(intent);
+
+
+
+
+
+            }
+        });
+
+
+
+
+
+
+
 
         descriptionEditText.addTextChangedListener(new TextWatcher() {
 
