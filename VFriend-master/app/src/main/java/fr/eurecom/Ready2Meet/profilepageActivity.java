@@ -7,6 +7,7 @@ import android.media.Image;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -37,6 +38,8 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
+import com.takusemba.multisnaprecyclerview.MultiSnapRecyclerView;
+import com.takusemba.multisnaprecyclerview.OnSnapListener;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
@@ -51,7 +54,9 @@ import java.util.concurrent.TimeUnit;
 import de.hdodenhof.circleimageview.CircleImageView;
 import fr.eurecom.Ready2Meet.database.Event;
 import fr.eurecom.Ready2Meet.database.User;
+
 import fr.eurecom.Ready2Meet.uiExtensions.ImageArrayAdapter;
+import fr.eurecom.Ready2Meet.uiExtensions.MultiSelectSpinner;
 
 
 public class profilepageActivity extends AppCompatActivity {
@@ -84,9 +89,13 @@ public class profilepageActivity extends AppCompatActivity {
         final Button followbutton = (Button) findViewById(R.id.followbutton);
         final Button blockbutton = (Button) findViewById(R.id.blockbutton);
 
-        final LinearLayout participatingsLayout =(LinearLayout) findViewById(R.id.participatingsLayout);
+        final TextView participatingeventstext = (TextView) findViewById(R.id.participatingeventstext);
+        final TextView oldeventstext = (TextView) findViewById(R.id.oldeventstext);
+
 
         final ArrayList<Event> eventlist = new ArrayList<Event>();
+
+        final MultiSnapRecyclerView multiSnapRecyclerView = (MultiSnapRecyclerView) findViewById(R.id.multisnaprecylertest);
 
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Users/" + useridtoshow);
         mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -122,6 +131,22 @@ public class profilepageActivity extends AppCompatActivity {
                 else
                 {
                     categoriestext.setText("Categories (0)");
+                }
+
+                if(user.ParticipatingEvents!=null) {
+                    participatingeventstext.setText("Participating Events (" + user.ParticipatingEvents.size() + ")");
+                }
+                else
+                {
+                    participatingeventstext.setText("Participating Events (0)");
+                }
+
+                if(user.OldEvents!=null) {
+                    oldeventstext.setText("Old Events (" + user.OldEvents.size() + ")");
+                }
+                else
+                {
+                    oldeventstext.setText("Old Events (0)");
                 }
 
                 Calendar cal = Calendar.getInstance();
@@ -227,17 +252,7 @@ public class profilepageActivity extends AppCompatActivity {
                             }
                         });
                         menu.show();
-/*
-                        final Spinner spinner = (Spinner) findViewById(R.id.followers_spinner);
-                        final List<String> participants = new ArrayList<>();
-                        for(Map.Entry<String, Boolean> p : user.Followers.entrySet()) {
-                            participants.add(p.getKey());
-                        }
-                        SpinnerAdapter adapter = new ImageArrayAdapter(getApplicationContext(), R.layout
-                                .participant_spinner_row, participants);
-                        spinner.setAdapter(adapter);
-                        spinner.setVisibility(View.VISIBLE);
-*/
+
 
                     }
                 });
@@ -263,8 +278,19 @@ public class profilepageActivity extends AppCompatActivity {
 
 
 
+                final eventthumbsAdapter adapter = new eventthumbsAdapter(getApplicationContext(), eventlist,useridtoshow);
 
 
+                LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
+                multiSnapRecyclerView.setLayoutManager(layoutManager);
+
+                multiSnapRecyclerView.setAdapter(adapter);
+                multiSnapRecyclerView.setOnSnapListener(new OnSnapListener() {
+                    @Override
+                    public void snapped(int position) {
+                        // do something with the position of the snapped view
+                    }
+                });
 
                 if(user.ParticipatingEvents==null){return;}
                 for(final String key : user.ParticipatingEvents.keySet()) {
@@ -277,33 +303,7 @@ public class profilepageActivity extends AppCompatActivity {
                             Log.d("test", "Value is: " + value.title);
                             if(!eventlist.contains(value)){
                                 eventlist.add(value);
-
-                                //add owner first!
-                                StorageReference storageRef = FirebaseStorage.getInstance().getReferenceFromUrl
-                                        ("gs://ready2meet-e0286.appspot.com/EventPhotos/" + key +"/startPhoto");
-
-
-                                LinearLayout eventlayout = new LinearLayout(participatingsLayout.getContext());
-                                eventlayout.setOrientation(LinearLayout.VERTICAL);
-                                LinearLayout.LayoutParams test2 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.MATCH_PARENT);
-                                eventlayout.setLayoutParams(test2);
-                                eventlayout.setBackgroundColor(Color.RED);
-                                ImageView ii = new ImageView(eventlayout.getContext());
-                                LinearLayout.LayoutParams test = new LinearLayout.LayoutParams(600, 600);
-                                ii.setLayoutParams(test);
-
-                                eventlayout.addView(ii);
-
-                                TextView valueTV = new TextView(eventlayout.getContext());
-                                valueTV.setText(value.title);
-                                valueTV.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-
-                                eventlayout.addView(valueTV);
-
-
-                                participatingsLayout.addView(eventlayout);
-                                Glide.with(getApplicationContext()).using(new FirebaseImageLoader()).load
-                                        (storageRef).into(ii);
+                                adapter.notifyDataSetChanged();
 
 
 

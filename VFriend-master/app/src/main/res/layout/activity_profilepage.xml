@@ -224,19 +224,33 @@
 
                 </LinearLayout>
 
-                <LinearLayout
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Participating Events"
+    android:id="@+id/participatingeventstext"
+    android:textSize="15sp"
+    android:textStyle="bold|italic"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="4dp"/>
+                <com.takusemba.multisnaprecyclerview.MultiSnapRecyclerView
+                    android:layout_marginTop="8dp"
+                    android:id="@+id/multisnaprecylertest"
                     android:layout_width="match_parent"
-                    android:layout_height="300dp"
-                    android:background="#a3a"
-                    android:orientation="horizontal"
-                    android:id="@+id/participatingsLayout">
-                </LinearLayout>
+                    android:layout_height="wrap_content"
+                    app:msrv_gravity="start"
+                    app:msrv_snap_count="2" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="300dp"
-                    android:background="#e5e">
-                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/oldeventstext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Old Events"
+                    android:textSize="15sp"
+                    android:textStyle="bold|italic"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"/>
 
 
 

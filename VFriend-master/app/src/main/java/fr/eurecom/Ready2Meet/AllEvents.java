@@ -71,7 +71,7 @@ public class AllEvents extends Fragment {
             public void selectedStrings(List<String> strings) {
                 DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Users/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "/InterestedCategories");
                 mDatabase.removeValue();
-                
+
 
                 // Write filter strings to shared preferences
                 SharedPreferences.Editor editor = getActivity().getPreferences(Context
