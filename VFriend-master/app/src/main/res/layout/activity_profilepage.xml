@@ -253,6 +253,14 @@
                     android:layout_marginTop="4dp"/>
 
 
+                <com.takusemba.multisnaprecyclerview.MultiSnapRecyclerView
+                    android:layout_marginTop="8dp"
+                    android:id="@+id/oldmultisnaprecylertest"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:msrv_gravity="start"
+                    app:msrv_snap_count="1" />
+
 
 
 

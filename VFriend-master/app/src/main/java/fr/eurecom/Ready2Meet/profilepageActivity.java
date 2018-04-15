@@ -48,6 +48,7 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -96,8 +97,12 @@ public class profilepageActivity extends AppCompatActivity {
 
 
         final ArrayList<Event> eventlist = new ArrayList<Event>();
+        final ArrayList<Event> oldeventlist = new ArrayList<Event>();
+
 
         final MultiSnapRecyclerView multiSnapRecyclerView = (MultiSnapRecyclerView) findViewById(R.id.multisnaprecylertest);
+        final MultiSnapRecyclerView multiSnapRecyclerView2 = (MultiSnapRecyclerView) findViewById(R.id.oldmultisnaprecylertest);
+
 
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Users/" + useridtoshow);
         mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -135,21 +140,7 @@ public class profilepageActivity extends AppCompatActivity {
                     categoriestext.setText("Categories (0)");
                 }
 
-                if(user.ParticipatingEvents!=null) {
-                    participatingeventstext.setText("Participating Events (" + user.ParticipatingEvents.size() + ")");
-                }
-                else
-                {
-                    participatingeventstext.setText("Participating Events (0)");
-                }
 
-                if(user.OldEvents!=null) {
-                    oldeventstext.setText("Old Events (" + user.OldEvents.size() + ")");
-                }
-                else
-                {
-                    oldeventstext.setText("Old Events (0)");
-                }
 
                 Calendar cal = Calendar.getInstance();
             try {
@@ -215,17 +206,6 @@ public class profilepageActivity extends AppCompatActivity {
                             }
                         });
                         menu.show();
-/*
-                        final Spinner spinner = (Spinner) findViewById(R.id.followers_spinner);
-                        final List<String> participants = new ArrayList<>();
-                        for(Map.Entry<String, Boolean> p : user.Followers.entrySet()) {
-                            participants.add(p.getKey());
-                        }
-                        SpinnerAdapter adapter = new ImageArrayAdapter(getApplicationContext(), R.layout
-                                .participant_spinner_row, participants);
-                        spinner.setAdapter(adapter);
-                        spinner.setVisibility(View.VISIBLE);
-*/
 
                     }
                 });
@@ -281,10 +261,14 @@ public class profilepageActivity extends AppCompatActivity {
 
 
                 final eventthumbsAdapter adapter = new eventthumbsAdapter(getApplicationContext(), eventlist,useridtoshow);
-
+                final eventthumbsAdapter adapter2 = new eventthumbsAdapter(getApplicationContext(), oldeventlist,useridtoshow);
 
                 LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
+                LinearLayoutManager layoutManager2 = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
+
                 multiSnapRecyclerView.setLayoutManager(layoutManager);
+                multiSnapRecyclerView2.setLayoutManager(layoutManager2);
+
 
                 multiSnapRecyclerView.setAdapter(adapter);
                 multiSnapRecyclerView.setOnSnapListener(new OnSnapListener() {
@@ -294,8 +278,34 @@ public class profilepageActivity extends AppCompatActivity {
                     }
                 });
 
-                if(user.ParticipatingEvents==null){return;}
-                for(final String key : user.ParticipatingEvents.keySet()) {
+                multiSnapRecyclerView2.setAdapter(adapter2);
+                multiSnapRecyclerView2.setOnSnapListener(new OnSnapListener() {
+                    @Override
+                    public void snapped(int position) {
+                        // do something with the position of the snapped view
+                    }
+                });
+
+                Map<String, Boolean> map3 = new HashMap<>();
+                if(user.OldEvents!=null)
+                {
+                    map3.putAll(user.OldEvents);
+                }
+                else
+                {
+                    user.OldEvents = new HashMap<>();
+                }
+                if(user.ParticipatingEvents!=null)
+                {
+                    map3.putAll(user.ParticipatingEvents);
+                }
+                else
+                {
+                    user.ParticipatingEvents = new HashMap<>();
+                }
+
+                if(map3==null){return;}
+                for(final String key : map3.keySet()) {
                     FirebaseDatabase.getInstance().getReference().child("Events").child(key).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
@@ -303,14 +313,37 @@ public class profilepageActivity extends AppCompatActivity {
                             // whenever data at this location is updated.
                             Event value = dataSnapshot.getValue(Event.class);
                             Log.d("test", "Value is: " + value.title);
-                            if(!eventlist.contains(value)){
-                                eventlist.add(value);
-                                Collections.sort(eventlist,new EventComparator());
-                                adapter.notifyDataSetChanged();
 
+                            Calendar cal = Calendar.getInstance();
+                            try {
+                                cal.setTime(format.parse(value.endTime));
+                            }catch(Exception e){}
 
+                            Date enddateofevent = cal.getTime();
 
+                            Date today = Calendar.getInstance().getTime();
 
+                            if(today.after(enddateofevent))
+                            {
+                                if(!oldeventlist.contains(value)){
+
+                                    FirebaseDatabase.getInstance().getReference().child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("OldEvents").child(key).setValue(true);
+                                    FirebaseDatabase.getInstance().getReference().child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("ParticipatingEvents").child(key).removeValue();
+
+                                    oldeventlist.add(value);
+                                    oldeventstext.setText("Old Events (" + oldeventlist.size() + ")");
+                                    Collections.sort(oldeventlist,new EventComparator());
+                                    adapter2.notifyDataSetChanged();
+                                }
+                            }
+                            else
+                            {
+                                if(!eventlist.contains(value)){
+                                    eventlist.add(value);
+                                    participatingeventstext.setText("Participating Events (" + eventlist.size() + ")");
+                                    Collections.sort(eventlist,new EventComparator());
+                                    adapter.notifyDataSetChanged();
+                                }
                             }
                         }
 
@@ -321,6 +354,25 @@ public class profilepageActivity extends AppCompatActivity {
                         }
                     });
                 }
+/*
+                if(user.ParticipatingEvents!=null) {
+                    participatingeventstext.setText("Participating Events (" + user.ParticipatingEvents.size() + ")");
+                }
+                else
+                {
+                    participatingeventstext.setText("Participating Events (0)");
+                }
+
+                if(user.OldEvents!=null) {
+                    oldeventstext.setText("Old Events (" + user.OldEvents.size() + ")");
+                }
+                else
+                {
+                    oldeventstext.setText("Old Events (0)");
+                }
+*/
+
+
 
 //end
             }

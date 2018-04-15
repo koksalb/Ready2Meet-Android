@@ -41,8 +41,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/fr/eurecom/Ready2Meet/profilepageActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/fr/eurecom/Ready2Meet/profilepageActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_profilepage.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_profilepage.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -69,8 +69,8 @@
       <file leaf-file-name="activity_profilepage.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_profilepage.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="411">
-              <caret line="256" column="0" lean-forward="false" selection-start-line="256" selection-start-column="0" selection-end-line="256" selection-end-column="0" />
+            <state relative-caret-position="360">
+              <caret line="256" column="50" lean-forward="false" selection-start-line="256" selection-start-column="50" selection-end-line="256" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -82,8 +82,46 @@
       <file leaf-file-name="profilepageActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/fr/eurecom/Ready2Meet/profilepageActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="430" column="0" lean-forward="true" selection-start-line="430" selection-start-column="0" selection-end-line="430" selection-end-column="0" />
+            <state relative-caret-position="403">
+              <caret line="336" column="33" lean-forward="false" selection-start-line="336" selection-start-column="33" selection-end-line="336" selection-end-column="33" />
+              <folding>
+                <element signature="e#11162#11388#0" expanded="true" />
+                <element signature="e#11387#11388#0" expanded="true" />
+                <element signature="e#11510#11736#0" expanded="true" />
+                <element signature="e#11735#11736#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="eventthumbsAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/fr/eurecom/Ready2Meet/eventthumbsAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="242">
+              <caret line="59" column="5" lean-forward="false" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
+              <folding>
+                <element signature="e#1697#1698#0" expanded="true" />
+                <element signature="e#1754#1755#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AccountOptions.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/fr/eurecom/Ready2Meet/AccountOptions.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="217">
+              <caret line="318" column="91" lean-forward="false" selection-start-line="317" selection-start-column="20" selection-end-line="318" selection-end-column="91" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/fr/eurecom/Ready2Meet/database/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="353">
+              <caret line="36" column="40" lean-forward="false" selection-start-line="36" selection-start-column="40" selection-end-line="36" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -102,36 +140,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>setValue</find>
-      <find>categoriestext</find>
-      <find>Sport</find>
-      <find>Multi</find>
-      <find>MultiSelec</find>
-      <find>MultiSelect</find>
-      <find>addView</find>
-      <find>txtDate.</find>
-      <find>txtDate</find>
-      <find>prgProgressbar</find>
-      <find>eventpicture</find>
-      <find>context</find>
-      <find>getItemC</find>
-      <find>EventViewHolder</find>
-      <find>txteventname</find>
-      <find>#80000000</find>
-      <find>participatingsLayout</find>
-      <find>o</find>
-      <find>on</find>
-      <find>onSn</find>
-      <find>onSna</find>
-      <find>onSnap</find>
-      <find>Messages</find>
-      <find>child(&quot;Messages&quot;)</find>
-      <find>chatButton</find>
-      <find>format.</find>
       <find>f</find>
       <find>format.par</find>
       <find>format.pars</find>
       <find>format.parse</find>
+      <find>O</find>
+      <find>Old</find>
+      <find>OldEve</find>
+      <find>OldEven</find>
+      <find>OldEvent</find>
+      <find>OldEvents</find>
+      <find>L</find>
+      <find>Last</find>
+      <find>LastK</find>
+      <find>LastKn</find>
+      <find>LastKnow</find>
+      <find>LastKnown</find>
+      <find>LastKnownL</find>
+      <find>LastKnownLa</find>
+      <find>LastKnownLat</find>
+      <find>LastKnownLati</find>
+      <find>Calendar cal = Calendar.getInstance();</find>
+      <find>Participating Events</find>
+      <find>Calendar.getInstance().getTime()</find>
+      <find>.</find>
+      <find>.ser</find>
+      <find>.se</find>
+      <find>.set</find>
+      <find>.setval</find>
+      <find>.setvalu</find>
+      <find>.setvalue</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -1985,6 +2023,28 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VFriend-master" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Ready2Meet" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="database" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
@@ -1993,7 +2053,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="device.picker.selection" value="192.168.21.101:5555" />
+    <property name="device.picker.selection" value="33007aa8c4502313" />
     <property name="android.profiler.active" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
@@ -2091,7 +2151,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1523782454433" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1523785040879" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2139,7 +2199,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1523782454433" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1523785040879" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2171,6 +2231,27 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
       <method />
     </configuration>
     <configuration default="true" type="JarApplication" factoryName="JAR Application">
@@ -2301,7 +2382,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1523782454434" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1523785040880" />
       </method>
     </configuration>
     <list size="1">
@@ -2369,7 +2450,7 @@
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2707889" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -2392,7 +2473,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="61" />
+      <option name="time" value="68" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="app">
@@ -2478,13 +2559,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fr/eurecom/Ready2Meet/database/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/activity_main2_drawer.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -2556,13 +2630,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="691">
           <caret line="173" column="41" lean-forward="true" selection-start-line="173" selection-start-column="41" selection-end-line="173" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fr/eurecom/Ready2Meet/AccountOptions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="92" column="52" lean-forward="false" selection-start-line="92" selection-start-column="52" selection-end-line="92" selection-end-column="52" />
         </state>
       </provider>
     </entry>
@@ -2746,13 +2813,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fr/eurecom/Ready2Meet/DashboardFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="269" column="92" lean-forward="false" selection-start-line="269" selection-start-column="92" selection-end-line="269" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/fr/eurecom/Ready2Meet/MyFirebaseInstanceIdService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="387">
@@ -2774,10 +2834,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fr/eurecom/Ready2Meet/DashboardFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="169" column="16" lean-forward="true" selection-start-line="169" selection-start-column="16" selection-end-line="169" selection-end-column="16" />
+          <folding>
+            <element signature="e#6738#9291#0" expanded="true" />
+            <element signature="e#9290#9291#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fr/eurecom/Ready2Meet/database/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="36" column="40" lean-forward="false" selection-start-line="36" selection-start-column="40" selection-end-line="36" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fr/eurecom/Ready2Meet/AccountOptions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="318" column="91" lean-forward="false" selection-start-line="317" selection-start-column="20" selection-end-line="318" selection-end-column="91" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fr/eurecom/Ready2Meet/eventthumbsAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="59" column="5" lean-forward="false" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
+          <folding>
+            <element signature="e#1697#1698#0" expanded="true" />
+            <element signature="e#1754#1755#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_profilepage.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="256" column="0" lean-forward="false" selection-start-line="256" selection-start-column="0" selection-end-line="256" selection-end-column="0" />
+        <state relative-caret-position="360">
+          <caret line="256" column="50" lean-forward="false" selection-start-line="256" selection-start-column="50" selection-end-line="256" selection-end-column="50" />
           <folding />
         </state>
       </provider>
@@ -2785,19 +2883,16 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fr/eurecom/Ready2Meet/eventthumbsAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="82" column="54" lean-forward="true" selection-start-line="82" selection-start-column="54" selection-end-line="82" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/fr/eurecom/Ready2Meet/profilepageActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="430" column="0" lean-forward="true" selection-start-line="430" selection-start-column="0" selection-end-line="430" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="403">
+          <caret line="336" column="33" lean-forward="false" selection-start-line="336" selection-start-column="33" selection-end-line="336" selection-end-column="33" />
+          <folding>
+            <element signature="e#11162#11388#0" expanded="true" />
+            <element signature="e#11387#11388#0" expanded="true" />
+            <element signature="e#11510#11736#0" expanded="true" />
+            <element signature="e#11735#11736#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
