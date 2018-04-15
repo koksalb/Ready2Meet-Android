@@ -72,11 +72,10 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCRtXxp2bifIrMmdXsjUm2Hlp-2YT8GAtE" />
 
-        <activity android:name=".profilepageActivity"
-            android:windowSoftInputMode="stateHidden">
-
-
-        </activity>
+        <activity
+            android:name=".profilepageActivity"
+            android:windowSoftInputMode="stateHidden"></activity>
+        <activity android:name=".MessagesActivity"></activity>
     </application>
 
 </manifest>

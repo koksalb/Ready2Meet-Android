@@ -382,7 +382,7 @@ public class profilepageActivity extends AppCompatActivity {
             }
         });
 
-        
+
         FirebaseDatabase.getInstance().getReference("Users/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "/BlockedUsers").child(useridtoshow).addValueEventListener(new ValueEventListener() {
 
             @Override

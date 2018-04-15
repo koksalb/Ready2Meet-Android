@@ -164,6 +164,13 @@ public class Main2Activity extends ToolbarActivity {
             ft.commit();
         } else if(id == R.id.nav_messages) {
             // TODO
+
+            Intent intent = new Intent(getApplication(), MessagesActivity.class);
+            startActivity(intent);
+
+
+
+
         } else if(id == R.id.nav_manage) {
             findViewById(R.id.tabs).setVisibility(View.GONE);
             fragment = new AccountOptions();
