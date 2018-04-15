@@ -32,10 +32,12 @@ import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.LocationSettingsRequest;
 import com.google.android.gms.location.SettingsClient;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -154,7 +156,7 @@ public class DashboardFragment extends Fragment implements OnMapReadyCallback, S
      * @param googleMap - The map to display
      */
     @Override
-    public void onMapReady(GoogleMap googleMap) {
+    public void onMapReady(final GoogleMap googleMap) {
         this.googleMap = googleMap;
         googleMap.getUiSettings().setMyLocationButtonEnabled(true);
 
@@ -170,7 +172,6 @@ public class DashboardFragment extends Fragment implements OnMapReadyCallback, S
         } else {
             googleMap.setMyLocationEnabled(true);
 
-
             FusedLocationProviderClient locationClient = LocationServices.getFusedLocationProviderClient(this.getActivity());
 
             locationClient.getLastLocation()
@@ -179,6 +180,15 @@ public class DashboardFragment extends Fragment implements OnMapReadyCallback, S
                         public void onSuccess(Location location) {
                             // GPS location can be null if GPS is switched off
                             if (location != null) {
+
+
+                                CameraPosition cameraPosition = new CameraPosition.Builder()
+                                        .target(new LatLng(location.getLatitude(),location.getLongitude()))
+                                        .zoom(10)
+                                        .build();
+                                googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+
+
                                 FirebaseAuth auth = FirebaseAuth.getInstance();
                                 FirebaseUser user = auth.getCurrentUser();
                                 final String signupEUID = user.getUid();
@@ -208,6 +218,9 @@ public class DashboardFragment extends Fragment implements OnMapReadyCallback, S
                                     FirebaseDatabase.getInstance().getReference().child("Users")
                                             .child(signupEUID).child("LastKnownCountry")
                                             .setValue(country);
+
+
+
 
 
 
