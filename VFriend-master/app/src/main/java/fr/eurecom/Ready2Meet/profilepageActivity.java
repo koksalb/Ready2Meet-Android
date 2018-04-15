@@ -103,7 +103,6 @@ public class profilepageActivity extends AppCompatActivity {
         final MultiSnapRecyclerView multiSnapRecyclerView = (MultiSnapRecyclerView) findViewById(R.id.multisnaprecylertest);
         final MultiSnapRecyclerView multiSnapRecyclerView2 = (MultiSnapRecyclerView) findViewById(R.id.oldmultisnaprecylertest);
 
-
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Users/" + useridtoshow);
         mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -323,6 +322,8 @@ public class profilepageActivity extends AppCompatActivity {
 
                             Date today = Calendar.getInstance().getTime();
 
+                            //TODO: Move events to old events someway different. this way it only moves when profile is opened.
+
                             if(today.after(enddateofevent))
                             {
                                 if(!oldeventlist.contains(value)){
@@ -354,23 +355,7 @@ public class profilepageActivity extends AppCompatActivity {
                         }
                     });
                 }
-/*
-                if(user.ParticipatingEvents!=null) {
-                    participatingeventstext.setText("Participating Events (" + user.ParticipatingEvents.size() + ")");
-                }
-                else
-                {
-                    participatingeventstext.setText("Participating Events (0)");
-                }
 
-                if(user.OldEvents!=null) {
-                    oldeventstext.setText("Old Events (" + user.OldEvents.size() + ")");
-                }
-                else
-                {
-                    oldeventstext.setText("Old Events (0)");
-                }
-*/
 
 
 
@@ -397,13 +382,58 @@ public class profilepageActivity extends AppCompatActivity {
             }
         });
 
+        
+        FirebaseDatabase.getInstance().getReference("Users/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "/BlockedUsers").child(useridtoshow).addValueEventListener(new ValueEventListener() {
 
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getValue()!=null)
+                {
+                    blockbutton.setText("Unblock");
+                }
+                else
+                {
+                    blockbutton.setText("Block");
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
         blockbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Users/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "/BlockedUsers");
-                mDatabase.child(useridtoshow).setValue(true);
+
+                final String blocker = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                final String blocked = useridtoshow;
+
+                final DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Users/" + blocker + "/BlockedUsers");
+                mDatabase.child(blocked).addListenerForSingleValueEvent(new ValueEventListener() {
+
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        if(dataSnapshot.getValue()!=null)
+                        {
+                            mDatabase.child(blocked).removeValue();
+                        }
+                        else
+                        {
+                            mDatabase.child(blocked).setValue(true);
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+
+
             }
         });
 

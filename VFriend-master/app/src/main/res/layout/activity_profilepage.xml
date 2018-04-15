@@ -19,6 +19,7 @@
                 android:orientation="vertical">
 
                 <LinearLayout
+                    android:focusableInTouchMode="true"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:background="#ffffff"
@@ -142,6 +143,7 @@
                         android:layout_gravity="center_vertical|right"
                         android:text="Lorem ipsum dolor sit amet, nec no mollis bonorum. No tota iuvaret admodum eam, mea eu vero solet qualisque. Id vel ipsum laudem interpretaris, id pro affert option, harum delicata delicatissimi cum ad. Denique cotidieque no quo. Illum soleat honestatis no mea, luptatum atomorum vituperatoribus cu eum."/>
                     <EditText
+                        android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:maxLines="5"
@@ -227,7 +229,7 @@
 <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="Participating Events"
+    android:text="Participating Events (0)"
     android:id="@+id/participatingeventstext"
     android:textSize="15sp"
     android:textStyle="bold|italic"
@@ -246,7 +248,7 @@
                     android:id="@+id/oldeventstext"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Old Events"
+                    android:text="Old Events (0)"
                     android:textSize="15sp"
                     android:textStyle="bold|italic"
                     android:layout_marginStart="8dp"
