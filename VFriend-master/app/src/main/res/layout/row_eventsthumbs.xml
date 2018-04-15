@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="150dp"
+    android:layout_width="154dp"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:orientation="vertical">
+        android:background="@drawable/eventthumbs"
+        android:orientation="vertical"
+        >
 
         <LinearLayout
             android:id="@+id/imglayout"
+
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_gravity="top"
@@ -72,18 +78,18 @@
                         android:layout_height="wrap_content"
                         android:baselineAligned="false"
                         android:orientation="horizontal">
-                            <TextView
-                                android:id="@+id/txtdate"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_horizontal"
-                                android:layout_weight="50"
-                                android:background="#ffffff"
-                                android:gravity="center"
-                                android:foregroundGravity="center"
-                                android:maxLines="1"
-                                android:text="18.01.2017"
-                                android:textSize="12sp" />
+                        <TextView
+                            android:id="@+id/txtdate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_weight="50"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:foregroundGravity="center"
+                            android:maxLines="1"
+                            android:text="18.01.2017"
+                            android:textSize="12sp" />
                     </LinearLayout>
 
 
@@ -96,16 +102,16 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="vertical">
-                                <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
-                                    android:id="@+id/eventprogress"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    app:rcBackgroundColor="@color/colorPrimary"
-                                    app:rcBackgroundPadding="0dp"
-                                    app:rcMax="25"
-                                    app:rcProgress="5"
-                                    app:rcProgressColor="@color/colorPrimaryDark"
-                                    app:rcRadius="2dp" />
+                            <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                                android:id="@+id/eventprogress"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:rcBackgroundColor="@color/colorPrimary"
+                                app:rcBackgroundPadding="0dp"
+                                app:rcMax="25"
+                                app:rcProgress="5"
+                                app:rcProgressColor="@color/colorPrimaryDark"
+                                app:rcRadius="0dp" />
 
 
                         </LinearLayout>
@@ -146,7 +152,13 @@
 
         </FrameLayout>
 
-
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="2dp"/>
 
     </LinearLayout>
+</LinearLayout>
+
+
+
 </android.support.constraint.ConstraintLayout>
