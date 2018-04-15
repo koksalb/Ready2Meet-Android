@@ -45,6 +45,8 @@ import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -303,6 +305,7 @@ public class profilepageActivity extends AppCompatActivity {
                             Log.d("test", "Value is: " + value.title);
                             if(!eventlist.contains(value)){
                                 eventlist.add(value);
+                                Collections.sort(eventlist,new EventComparator());
                                 adapter.notifyDataSetChanged();
 
 
@@ -394,7 +397,40 @@ public class profilepageActivity extends AppCompatActivity {
     }
 
 
+    public class EventComparator implements Comparator<Event> {
+        @Override
+        public int compare(Event o1, Event o2) {
 
+            Calendar cal = Calendar.getInstance();
+            try {
+                cal.setTime(format.parse(o1.startTime));
+            }catch(Exception e){}
+
+            Date eventonedate = cal.getTime();
+
+            try {
+                cal.setTime(format.parse(o2.startTime));
+            }catch(Exception e){}
+
+
+            Date eventtwodate = cal.getTime();
+
+            if(eventonedate.after(eventtwodate))
+            {
+                return -1;
+            }
+            else if(eventonedate.before(eventtwodate))
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+
+
+        }
+    }
 
 
 
