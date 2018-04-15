@@ -27,11 +27,12 @@ public class userthumbsAdapter extends RecyclerView.Adapter<UserViewHolder>{
     private Context context;
     private ArrayList<User> users;
     private String owner;
-
-    public userthumbsAdapter(Context context, ArrayList<User> users) {
+    private ArrayList<String> userids;
+    public userthumbsAdapter(Context context, ArrayList<User> users, ArrayList<String> userids) {
         this.context=context;
         this.users=users;
         this.owner = owner;
+        this.userids = userids;
     }
     @Override
     public long getItemId(int position) {
@@ -59,8 +60,9 @@ public class userthumbsAdapter extends RecyclerView.Adapter<UserViewHolder>{
     @Override
     public void onBindViewHolder(final UserViewHolder holder, int position) {
         final User info = users.get(position);
-
+        final String infoid = userids.get(position);
         holder.setUser(info);
+        holder.setUserid(infoid);
         holder.senderdisplayname.setText(info.DisplayName);
 
         Picasso.with(context).load(info.ProfilePictureURL).into(holder.senderpicture);

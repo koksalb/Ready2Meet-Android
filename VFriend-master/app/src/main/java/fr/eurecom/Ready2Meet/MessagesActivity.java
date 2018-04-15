@@ -37,7 +37,7 @@ public class MessagesActivity extends AppCompatActivity {
         final ArrayList<String> messagesendersid = new ArrayList<String>();
 
 
-        final userthumbsAdapter adapter = new userthumbsAdapter(getApplicationContext(), messagesenders);
+        final userthumbsAdapter adapter = new userthumbsAdapter(getApplicationContext(), messagesenders,messagesendersid);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
         multiSnapRecyclerView.setLayoutManager(layoutManager);
         multiSnapRecyclerView.setAdapter(adapter);
@@ -62,7 +62,7 @@ public class MessagesActivity extends AppCompatActivity {
                         String senderid = channelid.replace(FirebaseAuth.getInstance().getCurrentUser().getUid(),"");
                         if(!messagesendersid.contains(senderid)){
                             messagesendersid.add(senderid);
-
+                            adapter.notifyDataSetChanged();
                         }
                     }
 
