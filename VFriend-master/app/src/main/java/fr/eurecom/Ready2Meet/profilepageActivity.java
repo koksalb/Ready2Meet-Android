@@ -125,11 +125,11 @@ public class profilepageActivity extends AppCompatActivity {
             }
 
                 if(user.Following!=null) {
-                    followingtext.setText("Followers (" + user.Following.size() + ")");
+                    followingtext.setText("Following (" + user.Following.size() + ")");
                 }
                 else
                 {
-                    followingtext.setText("Followers (0)");
+                    followingtext.setText("Following (0)");
                 }
 
                 if(user.InterestedCategories!=null) {
@@ -370,14 +370,64 @@ public class profilepageActivity extends AppCompatActivity {
         });
 
 
+        FirebaseDatabase.getInstance().getReference("Users/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "/Following").child(useridtoshow).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getValue()!=null)
+                {
+                    followbutton.setText("Unfollow");
+                }
+                else
+                {
+                    followbutton.setText("Follow");
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
         followbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Users/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "/Following");
-                mDatabase.child(useridtoshow).setValue(true);
 
-                mDatabase = FirebaseDatabase.getInstance().getReference("Users/" + useridtoshow + "/Followers");
-                mDatabase.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(true);
+                final String follower = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                final String followed = useridtoshow;
+
+                final DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Users/" + follower + "/Following");
+                mDatabase.child(followed).addListenerForSingleValueEvent(new ValueEventListener() {
+
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        if(dataSnapshot.getValue()!=null)
+                        {
+                            mDatabase.child(followed).removeValue();
+                            DatabaseReference mDatabase2 = FirebaseDatabase.getInstance().getReference("Users/" + useridtoshow + "/Followers");
+                            mDatabase2.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).removeValue();
+                        }
+                        else
+                        {
+                            mDatabase.child(followed).setValue(true);
+                            DatabaseReference mDatabase2 = FirebaseDatabase.getInstance().getReference("Users/" + useridtoshow + "/Followers");
+                            mDatabase2.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(true);
+
+
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+
+
+
 
 
             }
@@ -398,6 +448,11 @@ public class profilepageActivity extends AppCompatActivity {
                 }
 
             }
+
+
+
+
+
 
             @Override
             public void onCancelled(DatabaseError databaseError) {

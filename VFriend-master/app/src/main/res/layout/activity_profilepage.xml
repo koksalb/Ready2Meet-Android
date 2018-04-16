@@ -77,13 +77,14 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="0dp"
-                        android:layout_weight="20"
+                        android:layout_weight="22"
                         android:orientation="vertical">
 
                         <Button
                             android:layout_marginTop="20dp"
                             android:id="@+id/followbutton"
-                            android:layout_width="match_parent"
+                            android:layout_width="100dp"
+                            android:layout_gravity="center"
                             android:layout_height="30dp"
                             android:background="#42a1f4"
                             android:text="Follow"
@@ -92,8 +93,9 @@
                         <Button
                             android:layout_marginTop="20dp"
                             android:id="@+id/messagebutton"
-                            android:layout_width="match_parent"
+                            android:layout_width="100dp"
                             android:layout_height="30dp"
+                            android:layout_gravity="center"
                             android:background="#5ff939"
                             android:text="Message"
                             />
@@ -101,8 +103,9 @@
                         <Button
                             android:layout_marginTop="20dp"
                             android:id="@+id/blockbutton"
-                            android:layout_width="match_parent"
+                            android:layout_width="100dp"
                             android:layout_height="30dp"
+                            android:layout_gravity="center"
                             android:background="#f24835"
                             android:text="Block"
                             />
