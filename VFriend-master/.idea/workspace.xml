@@ -32,11 +32,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa6d12a4-7da6-4672-a6a8-0e8ad8b9ef8f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/fr/eurecom/Ready2Meet/ExploreFragment.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/fr/eurecom/Ready2Meet/WhoisaroundViewHolderThumbs.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/fr/eurecom/Ready2Meet/whoisaroundthumbsadapter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_explore.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/row_whoisaroundthumbs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" />
@@ -46,9 +41,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/fr/eurecom/Ready2Meet/Main2Activity.java" afterPath="$PROJECT_DIR$/app/src/main/java/fr/eurecom/Ready2Meet/Main2Activity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/fr/eurecom/Ready2Meet/uiExtensions/MainPagerAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/fr/eurecom/Ready2Meet/uiExtensions/MainPagerAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_profilepage.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_profilepage.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/fr/eurecom/Ready2Meet/whoisaroundthumbsadapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/fr/eurecom/Ready2Meet/whoisaroundthumbsadapter.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -85,11 +78,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="activity_profilepage.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="activity_profilepage.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_profilepage.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="49" column="58" lean-forward="false" selection-start-line="49" selection-start-column="58" selection-end-line="49" selection-end-column="58" />
+            <state relative-caret-position="99">
+              <caret line="35" column="50" lean-forward="false" selection-start-line="35" selection-start-column="50" selection-end-line="35" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -101,8 +94,8 @@
       <file leaf-file-name="profilepageActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/fr/eurecom/Ready2Meet/profilepageActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="109">
-              <caret line="376" column="8" lean-forward="false" selection-start-line="376" selection-start-column="8" selection-end-line="394" selection-end-column="11" />
+            <state relative-caret-position="119">
+              <caret line="66" column="97" lean-forward="false" selection-start-line="66" selection-start-column="12" selection-end-line="66" selection-end-column="97" />
               <folding>
                 <element signature="e#16483#18116#0" expanded="true" />
                 <element signature="e#18115#18116#0" expanded="true" />
@@ -116,8 +109,8 @@
       <file leaf-file-name="row_whoisaroundthumbs.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/row_whoisaroundthumbs.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+            <state relative-caret-position="184">
+              <caret line="27" column="12" lean-forward="false" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -126,19 +119,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="whoisaroundthumbsadapter.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="whoisaroundthumbsadapter.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/fr/eurecom/Ready2Meet/whoisaroundthumbsadapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="122" column="0" lean-forward="false" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
+            <state relative-caret-position="361">
+              <caret line="195" column="9" lean-forward="false" selection-start-line="195" selection-start-column="9" selection-end-line="195" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2543#3192#0" expanded="true" />
-                <element signature="e#3191#3192#0" expanded="true" />
-                <element signature="e#3915#4212#0" expanded="true" />
-                <element signature="e#4211#4212#0" expanded="true" />
-                <element signature="e#4262#5776#0" expanded="true" />
-                <element signature="e#5775#5776#0" expanded="true" />
+                <element signature="e#2570#3219#0" expanded="true" />
+                <element signature="e#3218#3219#0" expanded="true" />
+                <element signature="e#3942#4239#0" expanded="true" />
+                <element signature="e#4238#4239#0" expanded="true" />
+                <element signature="e#4289#5803#0" expanded="true" />
+                <element signature="e#5802#5803#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -192,14 +185,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Unfollow</find>
-      <find>s</find>
-      <find>star</find>
-      <find>start</find>
-      <find>startA</find>
-      <find>startAc</find>
-      <find>startAct</find>
-      <find>startActi</find>
       <find>startActivit</find>
       <find>startActivity</find>
       <find>startActivity(</find>
@@ -222,6 +207,14 @@
       <find>profilepageActivity.cl</find>
       <find>profilepageActivity.clas</find>
       <find>profilepageActivity.class</find>
+      <find>pre</find>
+      <find>premiu</find>
+      <find>premiums</find>
+      <find>premium</find>
+      <find>premiumf</find>
+      <find>premiumfra</find>
+      <find>premiumframe</find>
+      <find>format</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -2013,8 +2006,8 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_explore.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/fr/eurecom/Ready2Meet/ExploreFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/row_whoisaroundthumbs.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/fr/eurecom/Ready2Meet/whoisaroundthumbsadapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_profilepage.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/fr/eurecom/Ready2Meet/whoisaroundthumbsadapter.java" />
       </list>
     </option>
   </component>
@@ -2161,7 +2154,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="device.picker.selection" value="33007aa8c4502313" />
+    <property name="device.picker.selection" value="Nexus_5X_API_25" />
     <property name="android.profiler.active" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
@@ -2259,7 +2252,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1524919306206" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1524919745071" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2307,7 +2300,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1524919306206" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1524919745071" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2490,7 +2483,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1524919306207" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1524919745072" />
       </method>
     </configuration>
     <list size="1">
@@ -2542,7 +2535,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -2552,13 +2544,13 @@
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29175946" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29175946" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26865673" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26865673" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -2992,30 +2984,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fr/eurecom/Ready2Meet/profilepageActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="376" column="8" lean-forward="false" selection-start-line="376" selection-start-column="8" selection-end-line="394" selection-end-column="11" />
-          <folding>
-            <element signature="e#16483#18116#0" expanded="true" />
-            <element signature="e#18115#18116#0" expanded="true" />
-            <element signature="e#19990#20810#0" expanded="true" />
-            <element signature="e#20809#20810#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/row_whoisaroundthumbs.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/fr/eurecom/Ready2Meet/ListViewAdapter_Event.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="305">
@@ -3025,6 +2993,28 @@
             <element signature="e#7398#7399#0" expanded="true" />
           </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_profilepage.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="35" column="50" lean-forward="false" selection-start-line="35" selection-start-column="50" selection-end-line="35" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/row_whoisaroundthumbs.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="27" column="12" lean-forward="false" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/fr/eurecom/Ready2Meet/ExploreFragment.java">
@@ -3057,31 +3047,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fr/eurecom/Ready2Meet/whoisaroundthumbsadapter.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fr/eurecom/Ready2Meet/profilepageActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="122" column="0" lean-forward="false" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
+        <state relative-caret-position="119">
+          <caret line="66" column="97" lean-forward="false" selection-start-line="66" selection-start-column="12" selection-end-line="66" selection-end-column="97" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2543#3192#0" expanded="true" />
-            <element signature="e#3191#3192#0" expanded="true" />
-            <element signature="e#3915#4212#0" expanded="true" />
-            <element signature="e#4211#4212#0" expanded="true" />
-            <element signature="e#4262#5776#0" expanded="true" />
-            <element signature="e#5775#5776#0" expanded="true" />
+            <element signature="e#16483#18116#0" expanded="true" />
+            <element signature="e#18115#18116#0" expanded="true" />
+            <element signature="e#19990#20810#0" expanded="true" />
+            <element signature="e#20809#20810#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_profilepage.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fr/eurecom/Ready2Meet/whoisaroundthumbsadapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="49" column="58" lean-forward="false" selection-start-line="49" selection-start-column="58" selection-end-line="49" selection-end-column="58" />
-          <folding />
+        <state relative-caret-position="361">
+          <caret line="195" column="9" lean-forward="false" selection-start-line="195" selection-start-column="9" selection-end-line="195" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2570#3219#0" expanded="true" />
+            <element signature="e#3218#3219#0" expanded="true" />
+            <element signature="e#3942#4239#0" expanded="true" />
+            <element signature="e#4238#4239#0" expanded="true" />
+            <element signature="e#4289#5803#0" expanded="true" />
+            <element signature="e#5802#5803#0" expanded="true" />
+          </folding>
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
   </component>

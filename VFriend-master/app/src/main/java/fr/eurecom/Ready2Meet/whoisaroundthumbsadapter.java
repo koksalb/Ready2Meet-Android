@@ -18,6 +18,7 @@ import com.squareup.picasso.Picasso;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
@@ -176,6 +177,34 @@ holder.userpicture.setOnClickListener(new View.OnClickListener() {
 
         }
     });
+
+
+
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd 'at' hh:mm a", Locale.US);
+        Calendar cal = Calendar.getInstance();
+        try {
+            cal.setTime(format.parse(info.PremiumTill));
+        }catch(Exception e){}
+
+        Date premiumtilldate = cal.getTime();
+
+        Date today = Calendar.getInstance().getTime();
+
+        if(today.after(premiumtilldate))
+        {
+            holder.premiumstar.setVisibility(View.GONE);
+        }
+        else
+        {
+            holder.premiumstar.setVisibility(View.VISIBLE);
+
+        }
+
+
+
+
+
+
 
 
 
