@@ -40,12 +40,17 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import fr.eurecom.Ready2Meet.uiExtensions.MainPagerAdapter;
 import fr.eurecom.Ready2Meet.uiExtensions.ToolbarActivity;
 
 import static android.content.pm.PackageManager.PERMISSION_GRANTED;
+import static fr.eurecom.Ready2Meet.profilepageActivity.getDifferenceDays;
 
 public class Main2Activity extends ToolbarActivity implements  BillingProcessor.IBillingHandler{
     private FirebaseAuth auth;
@@ -212,7 +217,6 @@ public class Main2Activity extends ToolbarActivity implements  BillingProcessor.
                 boolean isOneTimePurchaseSupported = bp.isOneTimePurchaseSupported();
                 if(isOneTimePurchaseSupported) {
 
-
                     bp.purchase(this,"1monthpremium");
 
 
@@ -246,6 +250,56 @@ public class Main2Activity extends ToolbarActivity implements  BillingProcessor.
     /*
     * Called when requested PRODUCT ID was successfully purchased
     */
+    if (productId.equals("1monthpremium"))
+    {
+        FirebaseDatabase.getInstance().getReference().child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("PremiumTill").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String premiumstring = dataSnapshot.getValue(String.class);
+                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd 'at' hh:mm a", Locale.US);
+                long daysleft = 0;
+                Calendar cal = Calendar.getInstance();
+                try {
+                    cal.setTime(format.parse(premiumstring));
+                }catch(Exception e){}
+
+                Date premiumtilldate = cal.getTime();
+
+                Date today = Calendar.getInstance().getTime();
+
+                if(today.after(premiumtilldate))
+                {
+                    daysleft = 0;
+                }
+                else
+                {
+                    daysleft = getDifferenceDays(today,premiumtilldate);
+                    //premiumdayslefttext.setText(String.valueOf(getDifferenceDays(today,premiumtilldate)));
+                }
+
+                daysleft +=30;
+                Calendar cal2 = Calendar.getInstance();
+                cal2.add(Calendar.DAY_OF_YEAR, (int) (long)daysleft);
+
+                String newstringtoput = format.format(cal2.getTime());
+                FirebaseDatabase.getInstance().getReference().child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("PremiumTill").setValue(newstringtoput);
+                Toast.makeText(getApplicationContext(),"Congratz! You have "+ daysleft + " days premium now!",
+                        Toast.LENGTH_SHORT).show();
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+
+
+
+
+
+
+    }
+
+
+
     }
 
     @Override
@@ -256,6 +310,8 @@ public class Main2Activity extends ToolbarActivity implements  BillingProcessor.
     * Note - this includes handling the case where the user canceled the buy dialog:
     * errorCode = Constants.BILLING_RESPONSE_RESULT_USER_CANCELED
     */
+        Toast.makeText(getApplicationContext(),"Ops. Something went wrong :(",
+                Toast.LENGTH_SHORT).show();
     }
 
     @Override
