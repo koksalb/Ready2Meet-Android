@@ -104,6 +104,8 @@ public class profilepageActivity extends AppCompatActivity {
         final MultiSnapRecyclerView multiSnapRecyclerView = (MultiSnapRecyclerView) findViewById(R.id.multisnaprecylertest);
         final MultiSnapRecyclerView multiSnapRecyclerView2 = (MultiSnapRecyclerView) findViewById(R.id.oldmultisnaprecylertest);
 
+        final LinearLayout ButtonsLayout = (LinearLayout) findViewById(R.id.ButtonsLayout);
+
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Users/" + useridtoshow);
         mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -165,6 +167,7 @@ public class profilepageActivity extends AppCompatActivity {
 
                 if(useridtoshow.equals(FirebaseAuth.getInstance().getCurrentUser().getUid()))
                 {
+                    ButtonsLayout.setVisibility(View.GONE);
                     followbutton.setEnabled(false);
                     blockbutton.setEnabled(false);
                     descriptionText.setVisibility(View.GONE);
@@ -173,6 +176,7 @@ public class profilepageActivity extends AppCompatActivity {
                 }
                 else
                 {
+                    ButtonsLayout.setVisibility(View.VISIBLE);
                     followbutton.setEnabled(true);
                     blockbutton.setEnabled(true);
                     descriptionText.setVisibility(View.VISIBLE);

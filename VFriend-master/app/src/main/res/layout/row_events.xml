@@ -142,7 +142,7 @@
                                     android:gravity="center|start"
                                     android:maxLines="1"
                                     android:text="18.00"
-                                    android:textSize="18sp" />
+                                    android:textSize="16sp" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -162,7 +162,7 @@
                                     android:gravity="center|start"
                                     android:maxLines="1"
                                     android:text="21.00"
-                                    android:textSize="18sp" />
+                                    android:textSize="16sp" />
 
                             </LinearLayout>
 
@@ -176,7 +176,7 @@
                                 android:gravity="center|start"
                                 android:maxLines="1"
                                 android:text="18.01.2017"
-                                android:textSize="16sp" />
+                                android:textSize="12sp" />
                         </LinearLayout>
 
 
@@ -222,7 +222,8 @@
                         android:layout_weight="60"
                         android:baselineAligned="false"
                         android:orientation="horizontal"
-                        android:weightSum="1">
+                        android:weightSum="1"
+                        android:layout_marginBottom="4dp">
 
                         <LinearLayout
                             android:layout_width="100dp"
@@ -276,6 +277,7 @@
 
                                 <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
                                     android:layout_marginLeft="4dp"
+                                    android:layout_marginBottom="4dp"
                                     android:id="@+id/eventprogress"
                                     android:layout_width="100dp"
                                     android:layout_height="match_parent"
@@ -316,6 +318,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:orientation="horizontal"
+                    android:visibility="gone"
                     android:weightSum="1">
 
                     <LinearLayout

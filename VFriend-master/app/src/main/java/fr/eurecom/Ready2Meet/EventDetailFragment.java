@@ -354,8 +354,14 @@ public class EventDetailFragment extends Fragment implements OnMapReadyCallback,
     private void checkPermissions(int callbackId, String... permissionsId) {
         boolean permissions = true;
         for(String p : permissionsId) {
-            permissions = permissions && ContextCompat.checkSelfPermission(getContext(), p) ==
-                    PERMISSION_GRANTED;
+            try {
+                permissions = permissions && ContextCompat.checkSelfPermission(getContext(), p) ==
+                        PERMISSION_GRANTED;
+            }
+            catch(Exception e)
+            {
+                permissions = false;
+            }
         }
 
         if(! permissions) {
@@ -391,9 +397,19 @@ public class EventDetailFragment extends Fragment implements OnMapReadyCallback,
         Cursor cursor = CalendarContract.Instances.query(getContext().getContentResolver(), proj,
                 start.getTime(), end.getTime());
         if(cursor.getCount() > 0) {
-            ((TextView) view.findViewById(R.id.txt_collision)).setText("Conflict in calendar");
+            //((TextView) view.findViewById(R.id.txt_collision)).setText("Conflict in calendar");
+            AlertDialog alertDialog = new AlertDialog.Builder(getContext()).create();
+            alertDialog.setTitle("Calendar Conflict");
+            alertDialog.setMessage("This event conflicts with your calendar!");
+            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Okay :(",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+            alertDialog.show();
         } else {
-            ((TextView) view.findViewById(R.id.txt_collision)).setText("No conflicts in calendar");
+            //((TextView) view.findViewById(R.id.txt_collision)).setText("No conflicts in calendar");
         }
     }
 
@@ -449,7 +465,7 @@ public class EventDetailFragment extends Fragment implements OnMapReadyCallback,
 
         // Show the images of all participants. The owner is shown with a red circle.
         LinearLayout participantImages = (LinearLayout) view.findViewById(R.id.participants);
-
+        participantImages.removeAllViews();
         //add owner first!
         StorageReference storageRef = FirebaseStorage.getInstance().getReferenceFromUrl
                 ("gs://ready2meet-e0286.appspot.com/ProfilePictures/" + event.owner);

@@ -283,8 +283,12 @@ public class DashboardFragment extends Fragment implements OnMapReadyCallback, S
                     drawableicon = getResources().getDrawable(R.drawable.ic_location_green);
                 } else if(event.categories.containsKey("Party") && event.categories.get("Party")) {
                     drawableicon = getResources().getDrawable(R.drawable.ic_location_blue);
-                } else {
+                }
+                else if(event.categories.containsKey("Sport") && event.categories.get("Sport")) {
                     drawableicon = getResources().getDrawable(R.drawable.ic_location_red);
+                }
+                else {
+                    drawableicon = getResources().getDrawable(R.drawable.ic_location_on_black);
                 }
                 if(drawableicon instanceof BitmapDrawable) {
                     icon = ((BitmapDrawable) drawableicon).getBitmap();

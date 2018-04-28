@@ -87,7 +87,7 @@ public class SignupActivity extends AppCompatActivity {
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                auth = FirebaseAuth.getInstance();
                 String email = inputEmail.getText().toString().trim();
                 String password = inputPassword.getText().toString().trim();
                 final String displayname = name.getText().toString().trim();
