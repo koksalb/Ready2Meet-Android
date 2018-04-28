@@ -1,6 +1,7 @@
 package fr.eurecom.Ready2Meet;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
@@ -167,6 +168,14 @@ public class ListViewAdapter_Event extends RecyclerView.Adapter<EventViewHolder>
             LinearLayout.LayoutParams test = new LinearLayout.LayoutParams(100, 100);
             test.gravity = Gravity.CENTER;
             ii.setLayoutParams(test);
+            ii.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context, profilepageActivity.class);
+                    intent.putExtra("userid", info.owner);
+                    context.startActivity(intent);
+                }
+            });
             holder.participants.addView(ii);
             Glide.with(holder.participants.getContext()).using(new FirebaseImageLoader()).load
                     (storageRef).into(ii);
@@ -184,6 +193,16 @@ public class ListViewAdapter_Event extends RecyclerView.Adapter<EventViewHolder>
                 test = new LinearLayout.LayoutParams(100, 100);
                 test.gravity = Gravity.CENTER;
                 ii.setLayoutParams(test);
+                final String toshow = key;
+                ii.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(context, profilepageActivity.class);
+                        intent.putExtra("userid", toshow);
+                        context.startActivity(intent);
+                    }
+                });
+
                 holder.participants.addView(ii);
                 Glide.with(holder.participants.getContext()).using(new FirebaseImageLoader())
                         .load(storageRef).into(ii);

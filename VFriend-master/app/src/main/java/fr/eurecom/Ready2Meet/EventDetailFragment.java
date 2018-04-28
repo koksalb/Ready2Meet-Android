@@ -479,6 +479,17 @@ public class EventDetailFragment extends Fragment implements OnMapReadyCallback,
         ii.setLayoutParams(test);
         Glide.with(participantImages.getContext()).using(new FirebaseImageLoader()).load
                 (storageRef).fitCenter().into(ii);
+
+        ii.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), profilepageActivity.class);
+                intent.putExtra("userid", event.owner);
+                startActivity(intent);
+            }
+        });
+
+
         participantImages.addView(ii);
 
         // Iterate over all participants and add their image
@@ -498,6 +509,16 @@ public class EventDetailFragment extends Fragment implements OnMapReadyCallback,
             ii.setLayoutParams(test);
             Glide.with(participantImages.getContext()).using(new FirebaseImageLoader()).load
                     (storageRef).fitCenter().into(ii);
+
+            final String toshow = key;
+            ii.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getContext(), profilepageActivity.class);
+                    intent.putExtra("userid", toshow);
+                    startActivity(intent);
+                }
+            });
             participantImages.addView(ii);
         }
 
