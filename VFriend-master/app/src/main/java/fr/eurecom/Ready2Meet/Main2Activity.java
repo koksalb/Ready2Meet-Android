@@ -72,9 +72,9 @@ public class Main2Activity extends ToolbarActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
-        tabLayout.getTabAt(0).setText("Overview");
-        tabLayout.getTabAt(1).setText("All Events");
-        tabLayout.addTab(tabLayout.newTab().setText("My Events"));
+        tabLayout.getTabAt(0).setText("Map View");
+        tabLayout.getTabAt(1).setText("Events");
+        tabLayout.getTabAt(2).setText("Explore");
 
         final String token = FirebaseInstanceId.getInstance().getToken();
         final String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();

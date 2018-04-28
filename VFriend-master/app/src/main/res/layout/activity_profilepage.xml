@@ -46,7 +46,8 @@
                             app:civ_border_color="#FF000000"
                             android:src="@drawable/templateprofilepicture"
                             android:layout_gravity="center"
-                            android:background="#ffffff"/>
+                            android:background="#ffffff"
+                            android:scaleType="centerCrop"/>
 <FrameLayout
     android:id="@+id/premiumFrame"
     android:layout_width="wrap_content"

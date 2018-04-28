@@ -7,6 +7,7 @@ import android.util.Log;
 
 import fr.eurecom.Ready2Meet.AllEvents;
 import fr.eurecom.Ready2Meet.DashboardFragment;
+import fr.eurecom.Ready2Meet.ExploreFragment;
 
 public class MainPagerAdapter extends FragmentPagerAdapter {
 
@@ -25,10 +26,10 @@ public class MainPagerAdapter extends FragmentPagerAdapter {
                 fragment = new AllEvents();
                 break;
             case 2:
-                // TODO: My events
+                fragment = new ExploreFragment();
             default:
                 Log.e("MainPagerAdapter", "Wrong position for fragment: " + position);
-                break;
+            break;
         }
 
         return fragment;
@@ -36,6 +37,6 @@ public class MainPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 2;
+        return 3;
     }
 }

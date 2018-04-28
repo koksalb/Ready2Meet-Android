@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:background="@drawable/eventthumbs"
+        android:layout_width="160dp"
+        android:layout_height="180dp"
+        android:orientation="vertical">
+        <FrameLayout
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            >
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/userpicture"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/templateprofilepicture"
+            android:layout_gravity="top|center"
+            android:foregroundGravity="center"
+            />
+            <ImageView
+                android:id="@+id/premiumstar"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/premiumstar"
+                android:layout_gravity="top|start"/>
+
+        </FrameLayout>
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Berkay Köksal"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/userdistance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2.5 km"
+            android:layout_gravity="center"
+            android:textStyle="italic"
+            android:textSize="12sp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            android:padding="4dp"
+            android:layout_marginBottom="4dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_marginLeft="4dp"
+                android:id="@+id/followbutton"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:layout_height="40dp"
+                android:background="#42a1f4"
+                android:text="Follow"
+                android:textSize="10sp"
+                />
+<LinearLayout
+    android:layout_width="4dp"
+    android:layout_height="wrap_content"/>
+            <Button
+                android:layout_marginRight="4dp"
+                android:id="@+id/messagebutton"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:layout_height="40dp"
+                android:background="#5ff939"
+                android:text="Message"
+                android:textSize="10sp"
+                />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+
+</android.support.constraint.ConstraintLayout>

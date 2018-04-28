@@ -1,0 +1,87 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="fr.eurecom.Ready2Meet.ExploreFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="100"
+        android:padding="16dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="100">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Who is around? (-50 KM)"
+            android:textStyle="bold|italic"
+            android:textSize="20sp"/>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="95"/>
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:foregroundGravity="center"
+                android:src="@android:drawable/ic_search_category_default"/>
+
+        </LinearLayout>
+
+        <com.takusemba.multisnaprecyclerview.MultiSnapRecyclerView
+
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:id="@+id/multisnaprecylerwhoisaround"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:msrv_gravity="start"
+            app:msrv_snap_count="1" />
+
+        <LinearLayout
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="100">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chat Rooms"
+                android:textStyle="bold|italic"
+                android:textSize="20sp"/>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="95"/>
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:foregroundGravity="center"
+                android:src="@android:drawable/ic_input_add"/>
+
+        </LinearLayout>
+
+
+        <com.takusemba.multisnaprecyclerview.MultiSnapRecyclerView
+
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:id="@+id/multisnaprecylerchatrooms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:msrv_gravity="start"
+            app:msrv_snap_count="1" />
+
+
+    </LinearLayout>
+
+</FrameLayout>
