@@ -20,12 +20,12 @@
             android:title="Settings" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Premium">
         <menu>
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:title="Buy a month of premium" />
         </menu>
     </item>
 

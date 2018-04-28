@@ -26,6 +26,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.anjlab.android.iab.v3.BillingProcessor;
+import com.anjlab.android.iab.v3.TransactionDetails;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -45,12 +47,12 @@ import fr.eurecom.Ready2Meet.uiExtensions.ToolbarActivity;
 
 import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 
-public class Main2Activity extends ToolbarActivity {
+public class Main2Activity extends ToolbarActivity implements  BillingProcessor.IBillingHandler{
     private FirebaseAuth auth;
 
     public final static String TAG_EVENT_DETAIL_FRAGMENT = "EventDetail";
 
-
+    BillingProcessor bp;
 
 
     @Override
@@ -100,6 +102,18 @@ public class Main2Activity extends ToolbarActivity {
                 // TODO: Error handling
             }
         });
+
+
+
+
+
+        bp = new BillingProcessor(this, "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApVqWA6SO/4TO+a5qNbVpY2wttZot3+R5bV0qvRBd4tvslabzJ/39iAztN4eFsp7H3KQQIY43h03AA8nLAhxcr/czLVdugOQJ17n2Vzmf9dV6BV3o12cYlF3Te8aqHpmnIxf+Mof9i6bckseVcGWpgAFI2wWQCCnWgErPyB2Z6uIh0tM7+NkdXCQFv+Frwp8/GKo3tN/03lygbT/TF1c0vcW0Z0CohhLvJ+PFF9SuT7dtZPNOg4z6D99pfPY7O4ijZW9LKi7BN3vPOklyYF+rrg1ebE+KG/cj1IXCo1OKSBcUOm1OvCFNvvZFPDWPVY1IJxSEYimmXPqMNo17KtRgUwIDAQAB", this);
+
+
+
+
+
+
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -125,7 +139,10 @@ public class Main2Activity extends ToolbarActivity {
             });
         }
 
-        super.onActivityResult(requestCode, resultCode, data);
+        if (!bp.handleActivityResult(requestCode, resultCode, data)) {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+
     }
 
     @Override
@@ -142,6 +159,14 @@ public class Main2Activity extends ToolbarActivity {
         } else {
             super.onBackPressed();
         }
+    }
+
+    @Override
+    public void onDestroy() {
+        if (bp != null) {
+            bp.release();
+        }
+        super.onDestroy();
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -179,11 +204,84 @@ public class Main2Activity extends ToolbarActivity {
             ft.addToBackStack(TAG_EVENT_DETAIL_FRAGMENT);
             ft.commit();
         } else if(id == R.id.nav_share) {
-            // TODO
+
+
+            boolean isAvailable = BillingProcessor.isIabServiceAvailable(this);
+            if(isAvailable) {
+
+                boolean isOneTimePurchaseSupported = bp.isOneTimePurchaseSupported();
+                if(isOneTimePurchaseSupported) {
+
+
+                    bp.purchase(this,"1monthpremium");
+
+
+
+                }
+
+            }
+
+
+
+
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
+
+
+    @Override
+    public void onBillingInitialized() {
+    /*
+    * Called when BillingProcessor was initialized and it's ready to purchase
+    */
+    }
+
+    @Override
+    public void onProductPurchased(String productId, TransactionDetails details) {
+    /*
+    * Called when requested PRODUCT ID was successfully purchased
+    */
+    }
+
+    @Override
+    public void onBillingError(int errorCode, Throwable error) {
+    /*
+    * Called when some error occurred. See Constants class for more details
+    *
+    * Note - this includes handling the case where the user canceled the buy dialog:
+    * errorCode = Constants.BILLING_RESPONSE_RESULT_USER_CANCELED
+    */
+    }
+
+    @Override
+    public void onPurchaseHistoryRestored() {
+    /*
+    * Called when purchase history was restored and the list of all owned PRODUCT ID's
+    * was loaded from Google Play
+    */
+    }
+
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
