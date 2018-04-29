@@ -24,6 +24,7 @@ import android.widget.PopupMenu;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.firebase.ui.storage.images.FirebaseImageLoader;
@@ -106,11 +107,34 @@ public class profilepageActivity extends AppCompatActivity {
 
         final LinearLayout ButtonsLayout = (LinearLayout) findViewById(R.id.ButtonsLayout);
 
+
+        DatabaseReference blocktest = FirebaseDatabase.getInstance().getReference("Users/" + useridtoshow + "/BlockedUsers/").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+        blocktest.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Boolean result = dataSnapshot.getValue(Boolean.class);
+                if(result!=null)
+                {
+                    Toast.makeText(getApplicationContext(),"This user blocked you :(",
+                            Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Users/" + useridtoshow);
         mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 final User user = snapshot.getValue(User.class);
+
                 displaynameText.setText(user.DisplayName);
                 descriptionText.setText(user.Description);
                 descriptionEditText.setText(user.Description);

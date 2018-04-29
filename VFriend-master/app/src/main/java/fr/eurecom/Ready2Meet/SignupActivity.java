@@ -62,6 +62,24 @@ public class SignupActivity extends AppCompatActivity {
         //Get Firebase auth instance
         auth = FirebaseAuth.getInstance();
 
+        FirebaseAuth.AuthStateListener mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    // User is signed in
+                    auth = FirebaseAuth.getInstance();
+                } else {
+                    // User is signed out
+                    auth = FirebaseAuth.getInstance();
+                }
+
+            }
+        };
+
+        FirebaseAuth.getInstance().addAuthStateListener(mAuthListener);
+
+
         Button btnSignIn = (Button) findViewById(R.id.sign_in_button);
         Button btnSignUp = (Button) findViewById(R.id.sign_up_button);
         inputEmail = (EditText) findViewById(R.id.email);
@@ -120,6 +138,9 @@ public class SignupActivity extends AppCompatActivity {
 
                 progressBar.setVisibility(View.VISIBLE);
                 //create user
+
+
+
                 auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener
                         (SignupActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -227,6 +248,26 @@ public class SignupActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         progressBar.setVisibility(View.GONE);
+    }
+
+    @Override
+    protected void onStart()
+    {
+        super.onStart();
+        FirebaseAuth.AuthStateListener mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    // User is signed in
+                    auth = FirebaseAuth.getInstance();
+                } else {
+                    // User is signed out
+                    auth = FirebaseAuth.getInstance();
+                }
+
+            }
+        };
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

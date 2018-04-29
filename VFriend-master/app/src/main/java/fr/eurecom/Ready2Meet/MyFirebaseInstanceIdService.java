@@ -14,6 +14,7 @@ public class MyFirebaseInstanceIdService extends FirebaseInstanceIdService {
 
     @Override
     public void onTokenRefresh() {
+
         String refreshedToken = FirebaseInstanceId.getInstance().getToken();
         Log.d("MyFirebaseIdService", "Refreshed token: " + refreshedToken);
 
@@ -21,23 +22,25 @@ public class MyFirebaseInstanceIdService extends FirebaseInstanceIdService {
     }
 
     private void sendRegistrationToServer(final String token) {
-        final String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        if(FirebaseAuth.getInstance().getCurrentUser()!=null) {
+            final String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-        FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child
-                ("ParticipatingEvents").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for(DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    String eventId = snapshot.getKey();
-                    FirebaseDatabase.getInstance().getReference().child("Messages").child
-                            (eventId).child("notificationTokens").push().setValue(token);
+            FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child
+                    ("ParticipatingEvents").addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        String eventId = snapshot.getKey();
+                        FirebaseDatabase.getInstance().getReference().child("Messages").child
+                                (eventId).child("notificationTokens").push().setValue(token);
+                    }
                 }
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                // TODO: Error handling
-            }
-        });
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    // TODO: Error handling
+                }
+            });
+        }
     }
 }

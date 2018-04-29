@@ -46,4 +46,9 @@ public class User {
         this.LastKnownCity="Istanbul";
         this.LastKnownCountry="Turkey";
     }
+
+
+
+
+
 }
