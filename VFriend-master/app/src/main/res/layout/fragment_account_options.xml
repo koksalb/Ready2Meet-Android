@@ -107,7 +107,79 @@
                 android:text="@string/remove_user"
                 android:textStyle="bold" />
 
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="6dp"
+                    android:background="#ffffff" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="12pt"
+                    android:layout_marginBottom="8dp"
+                    android:textAlignment="center"
+                    android:text="Blocked Users" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="100">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="25"
+                        android:textSize="16sp"
+                        android:text="Unblock"
+                        android:gravity="center"/>
+
+                    <Spinner
+                        android:id="@+id/blockedusers_spinner"
+                        android:layout_width="0dp"
+                        android:dropDownWidth="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"></Spinner>
+
+                    <Button
+                        android:id="@+id/remove_participant_button"
+                        android:layout_width="0dp"
+                        android:layout_gravity="center"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="25"
+                        android:textAlignment="center"
+                        android:textColor="@color/red"
+                        android:text="Confirm" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/cancel_event_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:background="@color/red"
+                    android:textStyle="bold"
+                    android:layout_marginTop="16dp"
+                    android:textColor="@color/white"
+                    android:text="Cancel event" />
+
+            </LinearLayout>
+
+
+
+
         </LinearLayout>
+
+
+
     </ScrollView>
 
 </FrameLayout>

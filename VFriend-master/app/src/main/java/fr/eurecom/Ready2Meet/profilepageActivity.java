@@ -107,7 +107,7 @@ public class profilepageActivity extends AppCompatActivity {
 
         final LinearLayout ButtonsLayout = (LinearLayout) findViewById(R.id.ButtonsLayout);
 
-
+//people cant see profiles of people tho blocked them
         DatabaseReference blocktest = FirebaseDatabase.getInstance().getReference("Users/" + useridtoshow + "/BlockedUsers/").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
         blocktest.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -127,6 +127,28 @@ public class profilepageActivity extends AppCompatActivity {
 
             }
         });
+
+        //people cant check profiles of people THEY blocked themselves
+        DatabaseReference blocktest2 = FirebaseDatabase.getInstance().getReference("Users/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "/BlockedUsers/").child(useridtoshow);
+        blocktest2.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Boolean result = dataSnapshot.getValue(Boolean.class);
+                if(result!=null)
+                {
+                    Toast.makeText(getApplicationContext(),"You blocked this user!\nUnblock them to see their profile",
+                            Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
 
 
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Users/" + useridtoshow);

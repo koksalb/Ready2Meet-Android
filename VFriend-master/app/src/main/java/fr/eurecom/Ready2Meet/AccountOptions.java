@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -31,8 +33,13 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 import fr.eurecom.Ready2Meet.database.User;
+import fr.eurecom.Ready2Meet.uiExtensions.ImageArrayAdapter;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -49,6 +56,8 @@ public class AccountOptions extends Fragment {
 
     private static final int PICK_GALLERY = 2;
     private String pictureUri = null;
+
+
 
     public AccountOptions() {
         // Required empty public constructor
@@ -95,15 +104,36 @@ public class AccountOptions extends Fragment {
         mailText.setText(user.getEmail());
         oldMail = user.getEmail();
 
+
+        final Spinner spinner = (Spinner) view.findViewById(R.id.blockedusers_spinner);
+        final List<String> participants = new ArrayList<>();
+
+
+        final SpinnerAdapter adapter = new ImageArrayAdapter(getContext(), R.layout
+                .participant_spinner_row, participants);
+
+
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Users/" + uid);
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 User user = snapshot.getValue(User.class);
+
                 nameText.setText(user.DisplayName);
                 oldName = user.DisplayName;
                 Picasso.with(getContext()).load(user.ProfilePictureURL).fit().into(imgView);
-            }
+if(!participants.isEmpty())
+{participants.clear();}
+                if (user.BlockedUsers != null) {
+                    for (Map.Entry<String, Boolean> p : user.BlockedUsers.entrySet()) {
+                        participants.add(p.getKey());
+
+                    }
+                }
+                    spinner.setAdapter(adapter);
+
+                }
+
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -274,6 +304,24 @@ public class AccountOptions extends Fragment {
             }
         });
 
+
+        view.findViewById(R.id.remove_participant_button).setOnClickListener(new View
+                .OnClickListener() {
+            private Long current;
+
+            @Override
+            public void onClick(View v) {
+                if(spinner.getSelectedItemPosition()!=-1) {
+                    String toRemove = participants.get(spinner.getSelectedItemPosition());
+
+                    FirebaseDatabase.getInstance().getReference().child("Users/" + FirebaseAuth.getInstance().getCurrentUser().getUid() +
+                            "/BlockedUsers/" + toRemove).removeValue();
+                    Toast.makeText(getActivity(), "Unblocked :)",
+                            Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
         return view;
     }
 
@@ -330,5 +378,9 @@ public class AccountOptions extends Fragment {
         }
 
     }
+
+
+
+
 
 }
