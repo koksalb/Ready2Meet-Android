@@ -1,5 +1,7 @@
 package fr.eurecom.Ready2Meet;
 
+import android.*;
+import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -7,10 +9,14 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.CalendarContract;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
@@ -58,9 +64,12 @@ import com.squareup.picasso.Picasso;
 
 import net.igenius.customcheckbox.CustomCheckBox;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -231,6 +240,30 @@ public class EventDetailFragment extends Fragment implements OnMapReadyCallback,
                 }
             }
         });
+
+
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd 'at' hh:mm a", Locale.US);
+        Calendar cal = Calendar.getInstance();
+        try {
+            cal.setTime(format.parse(event.startTime));
+        }catch(Exception e){}
+
+        Date premiumtilldate = cal.getTime();
+
+        Date today = Calendar.getInstance().getTime();
+
+        if(today.after(premiumtilldate))
+        {
+            checkBox.setVisibility(View.GONE);
+        }
+        else
+        {
+            checkBox.setVisibility(View.VISIBLE);
+        }
+
+
+
+
     }
 
     private void showImageGallery() {
@@ -262,7 +295,10 @@ public class EventDetailFragment extends Fragment implements OnMapReadyCallback,
 
         if(event.images != null) {
             for(Map.Entry<String, String> entry : event.images.entrySet()) {
-                storageRef = FirebaseStorage.getInstance().getReferenceFromUrl(entry.getValue());
+
+                if (!entry.getKey().equals("startPhoto"))
+                {
+                    storageRef = FirebaseStorage.getInstance().getReferenceFromUrl(entry.getValue());
                 ii = new ImageButton(eventImages.getContext());
 
                 ii.setPadding(5, 0, 0, 0);
@@ -282,7 +318,11 @@ public class EventDetailFragment extends Fragment implements OnMapReadyCallback,
                                 .fitCenter().centerCrop().into((ImageView) view.findViewById(R.id
                                 .eventpicture));
                     }
+
+
                 });
+
+            }
             }
         }
 
@@ -304,7 +344,11 @@ public class EventDetailFragment extends Fragment implements OnMapReadyCallback,
                 startActivityForResult(intent, PICK_GALLERY);
             }
         });
-        eventImages.addView(takePicture);
+        boolean participating = event.Participants.containsKey(FirebaseAuth.getInstance().getCurrentUser().getUid()) && event.Participants.get(FirebaseAuth.getInstance().getCurrentUser().getUid());
+        if(participating)
+        {
+            eventImages.addView(takePicture);
+        }
 
         view.findViewById(R.id.right_button).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -430,6 +474,54 @@ public class EventDetailFragment extends Fragment implements OnMapReadyCallback,
         ((TextView) view.findViewById(R.id.txteventname)).setText(event.title);
         ((TextView) view.findViewById(R.id.txtcategories)).setText(getCategories());
         ((TextView) view.findViewById(R.id.txteventdescription)).setText(event.description);
+
+        ImageButton imagesavebutton =(ImageButton) view.findViewById(R.id.imagesavebutton);
+
+        final ImageView todownload = (ImageView) view.findViewById(R.id.eventpicture);
+
+        imagesavebutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                try {
+                    if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && ActivityCompat.checkSelfPermission
+                            (getActivity().getApplicationContext(), android.Manifest.permission
+                                    .WRITE_EXTERNAL_STORAGE) != PERMISSION_GRANTED && ActivityCompat
+                            .checkSelfPermission(getActivity().getApplicationContext(), android.Manifest
+                                    .permission.WRITE_EXTERNAL_STORAGE) != PERMISSION_GRANTED) {
+                        Log.w("EventDetailFragment", "No permission to get storage access");
+                        requestPermissions(new String[] {android.Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE}, 123);
+                                            }
+                    else {
+                        todownload.buildDrawingCache();
+                        Bitmap bitmap = todownload.getDrawingCache();
+
+                        FileOutputStream outStream = null;
+                        File sdCard = Environment.getExternalStorageDirectory();
+                        File dir = new File(sdCard.getAbsolutePath() + "/Ready2Meet");
+                        dir.mkdirs();
+                        String fileName = String.format("%d.jpg", System.currentTimeMillis());
+                        File outFile = new File(dir, fileName);
+                        outStream = new FileOutputStream(outFile);
+                        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outStream);
+                        outStream.flush();
+                        outStream.close();
+                        Intent intent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+                        intent.setData(Uri.fromFile(outFile));
+                        getContext().sendBroadcast(intent);
+                        Toast.makeText(getContext(), "Image saved to your gallery.",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                }
+                catch (Exception e)
+                {
+                    Toast.makeText(getContext(), "Something went wrong :(",
+                            Toast.LENGTH_SHORT).show();
+                }
+
+
+            }
+        });
 
         // Parse and display start and end date
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd 'at' hh:mm a", Locale.US);

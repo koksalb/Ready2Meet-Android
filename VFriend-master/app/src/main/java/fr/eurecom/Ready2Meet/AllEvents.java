@@ -37,6 +37,8 @@ public class AllEvents extends Fragment {
     private ListViewAdapter_Event adapter;
     public static final String FILTER_KEY = "CATEGORY_FILTER";
 
+
+
     /**
      * Set up the spinner for filtering events according to the categories and add the listener
      * to perform filtering of one or multiple event categories.
@@ -69,6 +71,9 @@ public class AllEvents extends Fragment {
         categorySpinner.setListener(new MultiSelectSpinner.OnMultipleItemsSelectedListener() {
             @Override
             public void selectedStrings(List<String> strings) {
+
+
+
                 DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Users/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "/InterestedCategories");
                 mDatabase.removeValue();
 
