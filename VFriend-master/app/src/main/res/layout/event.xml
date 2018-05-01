@@ -14,7 +14,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
+            <RelativeLayout
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content">
             <ImageView
                 android:id="@+id/eventpicture"
                 android:layout_width="match_parent"
@@ -24,6 +26,21 @@
                 android:contentDescription="EventPicture"
                 android:scaleType="fitCenter"
                 android:src="@raw/default_event_picture" />
+                <TextView
+                    android:id="@+id/livestatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/eventpicture"
+                    android:layout_alignTop="@+id/eventpicture"
+                    android:layout_alignRight="@+id/eventpicture"
+                    android:layout_margin="1dp"
+                    android:gravity="top|center"
+                    android:text="LIVE"
+                    android:textStyle="bold|italic"
+                    android:textSize="20sp"
+                    android:textColor="@color/red" />
+            </RelativeLayout>
+
             <ImageButton
                 android:id="@+id/imagesavebutton"
                 android:layout_width="40dp"
