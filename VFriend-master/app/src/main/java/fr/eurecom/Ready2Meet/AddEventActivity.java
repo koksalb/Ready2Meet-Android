@@ -161,6 +161,13 @@ public class AddEventActivity extends ToolbarActivity {
         participants.put(user.getUid(), true);
         String owner = user.getUid();
 
+        if(eventTitle.equals("TestTitle") || place.equals("Select") || startTime.equals("Select") || endTime.equals("Select") || categories.size()==0 || latitude==0 || longitude==0  )
+        {
+            Toast.makeText(getApplicationContext(), "Ops, please check your event properties.", Toast
+                    .LENGTH_LONG).show();
+            return;
+        }
+
         Event newEvent = new Event(eventTitle, eventDescription, owner, current, categories,
                 capacity, pictureUri, place, startTime, endTime, participants, whoReported,
                 notificationArea, latitude, longitude);
