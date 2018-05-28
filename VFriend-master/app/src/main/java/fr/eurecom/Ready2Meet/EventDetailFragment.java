@@ -479,6 +479,8 @@ public class EventDetailFragment extends Fragment implements OnMapReadyCallback,
 
         final ImageView todownload = (ImageView) view.findViewById(R.id.eventpicture);
 
+        TextView livestatus = (TextView) view.findViewById(R.id.livestatus);
+
         imagesavebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
