@@ -164,7 +164,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:background="#f3f3"
+                    android:background="#f0f0f0"
                     android:weightSum="3"
                     android:orientation="horizontal">
 

@@ -481,6 +481,44 @@ public class EventDetailFragment extends Fragment implements OnMapReadyCallback,
 
         TextView livestatus = (TextView) view.findViewById(R.id.livestatus);
 
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd 'at' hh:mm a", Locale.US);
+        Calendar cal = Calendar.getInstance();
+        try {
+            cal.setTime(format.parse(event.startTime));
+        }catch(Exception e){}
+
+        Date eventstartdate = cal.getTime();
+
+        Calendar cal2 = Calendar.getInstance();
+        try {
+            cal2.setTime(format.parse(event.endTime));
+        }catch(Exception e){}
+        Date eventenddate = cal2.getTime();
+
+
+        Date today = Calendar.getInstance().getTime();
+
+        if(today.after(eventenddate))
+        {
+            livestatus.setText("PASSED");
+            livestatus.setTextColor(Color.RED);
+        }
+        else
+        {
+            if(today.after(eventstartdate))
+            {
+                livestatus.setText("LIVE");
+                livestatus.setTextColor(Color.GREEN);
+            }
+            else
+            {
+                livestatus.setText("UPCOMING");
+                livestatus.setTextColor(Color.BLUE);
+
+            }
+
+        }
+
         imagesavebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -526,7 +564,7 @@ public class EventDetailFragment extends Fragment implements OnMapReadyCallback,
         });
 
         // Parse and display start and end date
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd 'at' hh:mm a", Locale.US);
+        format = new SimpleDateFormat("yyyy-MM-dd 'at' hh:mm a", Locale.US);
         SimpleDateFormat formatTime = new SimpleDateFormat("hh:mm a", Locale.US);
         SimpleDateFormat formatDate = new SimpleDateFormat("MMM dd, yyyy", Locale.US);
         try {

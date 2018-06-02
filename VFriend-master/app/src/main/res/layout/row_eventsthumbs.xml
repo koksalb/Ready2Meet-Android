@@ -64,6 +64,7 @@
                     android:background="#ffffff"
                     android:gravity="center"
                     android:text="Some Random Event"
+                    android:maxLines="1"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 

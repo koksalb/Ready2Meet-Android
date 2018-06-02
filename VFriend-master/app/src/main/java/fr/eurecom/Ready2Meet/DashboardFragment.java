@@ -314,6 +314,7 @@ public class DashboardFragment extends Fragment implements OnMapReadyCallback, S
         googleMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
             @Override
             public void onInfoWindowClick(Marker marker) {
+
                 getActivity().findViewById(R.id.tabs).setVisibility(View.GONE);
                 EventDetailFragment fragment = new EventDetailFragment();
                 fragment.setEvent(marker.getTag().toString());
@@ -321,6 +322,7 @@ public class DashboardFragment extends Fragment implements OnMapReadyCallback, S
                 ft.replace(R.id.frame, fragment);
                 ft.addToBackStack(Main2Activity.TAG_EVENT_DETAIL_FRAGMENT);
                 ft.commit();
+
             }
         });
     }
